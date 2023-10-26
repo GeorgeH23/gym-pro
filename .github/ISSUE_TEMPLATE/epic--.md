@@ -1,12 +1,14 @@
 ---
 name: 'Epic: '
-about: 'Description:'
-title: ''
+about: This is our default user story template.
+title: 'EPIC: <TITLE>'
 labels: epic
 assignees: ''
 
 ---
 
-Additional Information:
+**Description:**
 
-Linked User Stories:
+**Additional Information:**
+
+**Linked User Stories:**
