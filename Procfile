@@ -1,1 +1,1 @@
-web: gunicorn core.wsgi
+web: gunicorn gym_pro_fitness.wsgi
