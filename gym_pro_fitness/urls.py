@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from workouts import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.get_home_page, name='get_home_page'),
 ]
