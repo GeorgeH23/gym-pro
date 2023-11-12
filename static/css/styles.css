@@ -41,7 +41,7 @@ main {
     -webkit-background-clip: text;
     background-clip: text;
     text-transform: uppercase;
-    font-size: 10rem;
+    font-size: 9rem;
     margin: 10px 0;
 }
 
@@ -63,4 +63,40 @@ main {
     background-color: #FFAF16;
     text-decoration: none;
     color: #333333;
+}
+
+/* Media query for big screens */
+@media screen and (min-width: 1300px) {
+    .home-title h1 {
+        font-size: 11rem;
+    }
+
+    .home-title button {
+        font-size: 1.1rem;
+        padding: 15px 42px;
+    }
+}
+
+/* Media query for medium screens */
+@media screen and (max-width: 768px) {
+    .home-title h1 {
+        font-size: 6rem;
+    }
+
+    .home-title button {
+        font-size: 0.8rem;
+        padding: 12px 30px;
+    }
+}
+
+/* Media query for small screens */
+@media screen and (max-width: 480px) {
+    .home-title h1 {
+        font-size: 4rem;
+    }
+
+    .home-title button {
+        font-size: 0.6rem;
+        padding: 10px 20px;
+    }
 }
