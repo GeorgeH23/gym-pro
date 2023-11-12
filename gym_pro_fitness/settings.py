@@ -36,7 +36,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['gym-pro-fitness-d84818eee5ff.herokuapp.com', 'localhost',
                  '8000-georgeh23-gym-pro-fitnes-4zxcif5lyi.us2.codeanyapp.com']
 
-
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 # Application definition
 
 INSTALLED_APPS = [
