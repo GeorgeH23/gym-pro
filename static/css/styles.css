@@ -65,6 +65,24 @@ main {
     color: #333333;
 }
 
+.footer-shadow {
+    box-shadow: 0px 1px 6px rgba(255, 175, 22, 8);
+}
+
+.logo-small {
+    width: 4rem;
+    height: 4rem;
+}
+
+.footer-icon-color h3 a{
+    color:#333333;
+    text-decoration: none;
+}
+
+.footer-icon-color h3 a:hover{
+    color: #FFAF16;
+}
+
 /* Media query for big screens */
 @media screen and (min-width: 1300px) {
     .home-title h1 {
@@ -79,6 +97,10 @@ main {
 
 /* Media query for medium screens */
 @media screen and (max-width: 768px) {
+    .home-title {
+        height: 70vh;
+    }
+    
     .home-title h1 {
         font-size: 6rem;
     }
@@ -87,10 +109,24 @@ main {
         font-size: 0.8rem;
         padding: 12px 30px;
     }
+
+    .logo-small {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .footer-icon-color h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0;
+    }
 }
 
 /* Media query for small screens */
 @media screen and (max-width: 480px) {
+    .home-title {
+        height: 60vh;
+    }
+
     .home-title h1 {
         font-size: 4rem;
     }
@@ -98,5 +134,15 @@ main {
     .home-title button {
         font-size: 0.6rem;
         padding: 10px 20px;
+    }
+
+    .logo-small {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .footer-icon-color h3 {
+        font-size: 1rem;
+        margin-bottom: 0;
     }
 }

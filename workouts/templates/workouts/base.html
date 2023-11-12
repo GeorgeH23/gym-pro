@@ -7,6 +7,8 @@
     <title>{% block title %}Gym Pro Fitness{% endblock %}</title>
     <!-- CSS styles, Bootstrap -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -62,10 +64,65 @@
         <div class="container">{% block content %}{% endblock %}</div>
     </main>
 
-    <footer class="footer">
-      <div class="container">
-        <p>&copy; 2023 Gym Pro Fitness. All rights reserved.</p>
-      </div>
+    <footer class="mt-auto bg-light py-4 footer-shadow">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left Section: Logo -->
+                <div class="col-md-4 col-sm-12 mb-3 mb-md-0 text-center text-md-left">             
+                    <a href="{% url 'get_home_page' %}">
+                        <img src="{% static 'images/logo-icon.png' %}" 
+                        alt="Logo" class="logo-small">
+                    </a>
+                </div>
+    
+                <!-- Middle Section: Social Media Icons -->
+                <div class="col-md-4 col-sm-12 mb-3 mb-md-0 text-center">
+                    <div class="footer-icon-color">
+                        <h3>
+                            <a href="https://facebook.com" target="_blank"
+                                rel="noopener" 
+                                aria-label="Facebook page (opens in a new tab)">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="https://instagram.com" target="_blank" 
+                            rel="noopener"
+                                aria-label="Instagram page (opens in a new tab)">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://twitter.com" target="_blank" 
+                            rel="noopener" 
+                                aria-label="Twitter page (opens in a new tab)">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" 
+                            rel="noopener" 
+                                aria-label="Linkedin page (opens in a new tab)">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </h3>
+                        <p class="mb-0 d-none d-md-block" >
+                            <small>
+                                &copy; 2023 Gym Pro Fitness. G Harpa.
+                            </small>
+                        </p>
+                    </div>
+                </div>
+    
+                <!-- Right Section: Contact Us Link -->
+                <div class="col-md-4 col-sm-12 text-center text-md-right footer-icon-color">
+                    <h3>
+                        <a href="contact-us.html" >Find us 
+                            <i class="fas fa-map-marker-alt"></i>
+                        </a>
+                    </h3>
+                    <p class="mb-0 d-md-none">
+                        <small>
+                            &copy; 2023 Gym Pro Fitness. G Harpa.
+                        </small>
+                    </p>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- JavaScript scripts -->
