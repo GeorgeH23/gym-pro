@@ -19,18 +19,18 @@ main {
     flex-grow: 1;
 }
 
-.navbar-nav .nav-item a {
+.navbar-nav .nav-item .nav-link {
     font-size: large;
     font-weight: bold;
-    color: #FFAF16 !important;
+    color: #FFAF16;
 }
 
 .navbar-nav .nav-item a:hover {
-    color: #333333 !important;
+    color: #333333;
 }
 
-.navbar-nav .active a{
-    color: #333333 !important;
+.navbar-light .navbar-nav .active>.nav-link {
+    color: #333333;
     border-bottom: 2px solid #FFAF16;
     margin-top: 0;
 }
