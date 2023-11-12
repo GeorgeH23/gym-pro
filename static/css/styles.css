@@ -19,6 +19,22 @@ main {
     flex-grow: 1;
 }
 
+.navbar-nav .nav-item a {
+    font-size: large;
+    font-weight: bold;
+    color: #FFAF16 !important;
+}
+
+.navbar-nav .nav-item a:hover {
+    color: #333333 !important;
+}
+
+.navbar-nav .active a{
+    color: #333333 !important;
+    border-bottom: 2px solid #FFAF16;
+    margin-top: 0;
+}
+
 .home-title {
     text-align: center;
     display: flex;
@@ -119,6 +135,10 @@ main {
         font-size: 1.3rem;
         margin-bottom: 0;
     }
+
+    .navbar-nav .nav-item a {
+        font-size: medium;
+    }
 }
 
 /* Media query for small screens */
@@ -144,5 +164,9 @@ main {
     .footer-icon-color h3 {
         font-size: 1rem;
         margin-bottom: 0;
+    }
+
+    .navbar-nav .nav-item a {
+        font-size: small;
     }
 }
