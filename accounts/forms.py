@@ -56,3 +56,41 @@ class RegistrationForm(UserCreationForm):
     class Meta:
         model = get_user_model()
         fields = ('username', 'email', 'password1', 'password2', )
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if email and get_user_model().objects.filter(email=email).exists():
+            raise forms.ValidationError(
+                'This email has already been used.')
+        return email
+
+    def clean_password1(self):
+        password1 = self.cleaned_data.get('password1')
+        # Password complexity validation
+        if not any(char.isupper() for char in password1):
+            raise forms.ValidationError(
+                'Password must contain at least one uppercase letter.')
+        if not any(char.islower() for char in password1):
+            raise forms.ValidationError(
+                'Password must contain at least one lowercase letter.')
+        if not any(char.isdigit() for char in password1):
+            raise forms.ValidationError(
+                'Password must contain at least one digit.')
+        return password1
+
+    def clean_password2(self):
+        password1 = self.cleaned_data.get('password1')
+        password2 = self.cleaned_data.get('password2')
+        if password1 and password2 and password1 != password2:
+            raise forms.ValidationError("Passwords do not match.")
+        return password2
+
+    def __init__(self, *args, **kwargs):
+        super(RegistrationForm, self).__init__(*args, **kwargs)
+        # Override the default form fields
+        for field_name in self.fields:
+            if 'password' in field_name:
+                self.fields[field_name].widget.attrs[
+                    'autocomplete'] = 'new-password'
+            else:
+                self.fields[field_name].widget.attrs['autocomplete'] = 'off'
