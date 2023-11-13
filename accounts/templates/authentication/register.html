@@ -1,0 +1,28 @@
+{% extends 'workouts/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container mt-5 col-9 col-md-6 col-lg-4">
+    <div class="text-center">
+        <h1 class="h2">Register</h1>
+    </div>
+    <div id="registerForm" class="form-container mt-3">
+        <form method="POST" action="{% url 'register_user' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p>
+                <button type="submit" class="btn btn-primary">
+                    Register
+                </button> Already registered? 
+                <a class="link-dark fw-bolder link-offset-2 
+                    link-underline-opacity-25 link-underline-opacity-100-hover"
+                    href="">Login here
+                </a>.
+            </p>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
