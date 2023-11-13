@@ -11,12 +11,24 @@ def register_user(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
 
-        form.is_valid()
-        user = form.save()
-        username = form.cleaned_data.get('username')
-        password = form.cleaned_data.get('password1')
-        form = authenticate(username=username, password=password)
-        login(request, user)
+        if form.is_valid():
+            user = form.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            form = authenticate(username=username, password=password)
+            login(request, user)
+            messages.success(
+                request,
+                ('Registration successful. Welcome!'),
+                extra_tags='success'
+            )
+            return redirect('/')
+        else:
+            messages.error(
+                request,
+                ('Registration failed. Please correct the errors.'),
+                extra_tags='danger'
+            )
     else:
         form = RegistrationForm()
 
