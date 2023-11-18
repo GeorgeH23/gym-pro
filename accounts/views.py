@@ -34,3 +34,12 @@ def register_user(request):
 
     context = {'form': form}
     return render(request, 'authentication/register.html', context)
+
+
+def login_user(request):
+    if request.method == 'POST':
+        identifier = request.POST["username_or_email"]
+        password = request.POST["password"]
+
+    else:
+        return render(request, 'authentication/login.html', {})
