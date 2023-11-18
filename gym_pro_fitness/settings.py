@@ -37,7 +37,8 @@ ALLOWED_HOSTS = ['gym-pro-fitness-d84818eee5ff.herokuapp.com', 'localhost',
                  '8000-georgeh23-gym-pro-fitnes-4zxcif5lyi.us2.codeanyapp.com']
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
-# Application definition
+
+SITE_ID = 1
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -142,3 +143,12 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Add custom User model
+AUTH_USER_MODEL = 'auth.User'
+
+# Add login url
+LOGIN_URL = 'login_user'
+
+# Add registration url
+REGISTRATION_URL = 'register_user'
