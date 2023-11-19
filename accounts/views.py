@@ -105,3 +105,10 @@ def user_profile(request):
         'user': user
         }
     return render(request, 'user_profile.html', context)
+
+
+# Update Profile View
+@login_required
+def update_profile(request):
+
+    return render(request, 'user_profile_update.html', {})
