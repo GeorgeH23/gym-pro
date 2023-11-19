@@ -53,40 +53,43 @@
                 <a class="nav-link" href="{% url 'get_home_page' %}">Home</a>
             </li>
             <!-- Navbar items available if not logged in -->
-            <li class="nav-item 
-                {% if request.path == '/users/register_user/' %}
-                    active
-                {% endif %}">
-                <a class="nav-link" href="{% url 'register_user' %}">
-                    Register
-                </a>
-            </li>
-            <li class="nav-item 
-                {% if request.path == '/users/login_user' %}
-                    active
-                {% endif %}">
-                <a class="nav-link" href="{% url 'login_user' %}">
-                    Login
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'logout_user' %}">
-                    Logout
-                </a>
-            </li>
+            {% if user.is_authenticated %}
+                <li class="nav-item 
+                    {% if request.path == '/users/profile/' %}
+                        active
+                    {% endif %}">
+                    <a class="nav-link" href="{% url 'user_profile' %}">
+                        My Profile
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout_user' %}">
+                        Logout
+                    </a>
+                </li>
+            {% else %}
+                <li class="nav-item 
+                    {% if request.path == '/users/login_user' %}
+                        active
+                    {% endif %}">
+                    <a class="nav-link" href="{% url 'login_user' %}">
+                        Login
+                    </a>
+                </li>
+                <li class="nav-item 
+                    {% if request.path == '/users/register_user/' %}
+                        active
+                    {% endif %}">
+                    <a class="nav-link" href="{% url 'register_user' %}">
+                        Register
+                    </a>
+                </li>
+            {% endif %}
             <li class="nav-item 
                 {% if request.path == '/contact' %}
                     active
                 {% endif %}">
                 <a class="nav-link" href="">Contact</a>
-            </li>
-            <li class="nav-item 
-                {% if request.path == '/users/profile/' %}
-                    active
-                {% endif %}">
-                <a class="nav-link" href="{% url 'user_profile' %}">
-                    My Profile
-                </a>
             </li>
             </ul>
         </div>
