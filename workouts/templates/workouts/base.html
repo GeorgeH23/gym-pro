@@ -62,7 +62,7 @@
                 </a>
             </li>
             <li class="nav-item 
-                {% if request.path == '/users/login_user/' %}
+                {% if request.path == '/users/login_user' %}
                     active
                 {% endif %}">
                 <a class="nav-link" href="{% url 'login_user' %}">
@@ -79,6 +79,14 @@
                     active
                 {% endif %}">
                 <a class="nav-link" href="">Contact</a>
+            </li>
+            <li class="nav-item 
+                {% if request.path == '/users/profile/' %}
+                    active
+                {% endif %}">
+                <a class="nav-link" href="{% url 'user_profile' %}">
+                    My Profile
+                </a>
             </li>
             </ul>
         </div>
