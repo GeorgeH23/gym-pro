@@ -1,6 +1,8 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth import get_user_model
+from cloudinary.forms import CloudinaryFileField
 
 
 # User Registration Form
@@ -94,3 +96,47 @@ class RegistrationForm(UserCreationForm):
                     'autocomplete'] = 'new-password'
             else:
                 self.fields[field_name].widget.attrs['autocomplete'] = 'off'
+
+
+# Update User Profile Form
+class UpdateProfileForm(UserChangeForm):
+    email = forms.EmailField(
+        label='Email:',
+        widget=forms.EmailInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Email address'}
+        ),
+        required=False,
+        help_text='',
+    )
+
+    profile_image = CloudinaryFileField(
+        label='Change Profile Image',
+        widget=forms.ClearableFileInput(attrs={
+            'class': 'form-control form-label'}
+        ),
+        required=False,
+    )
+
+    new_password1 = forms.CharField(
+        label='New Password',
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control form-label',
+            'placeholder': 'New Password',
+            'title': 'Min 7 chars, at least 1 uppercase, 1 lowercase, 1 digit.'}
+        ),
+        required=False,
+    )
+
+    new_password2 = forms.CharField(
+        label='Confirm New Password',
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control form-label',
+            'placeholder': 'Confirm New Password'}
+        ),
+        required=False,
+    )
+
+    class Meta:
+        model = User
+        fields = ('email', 'profile_image', )
