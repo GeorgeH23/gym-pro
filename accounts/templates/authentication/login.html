@@ -4,37 +4,37 @@
 
 {% block content %}
 
-    <div class="container mt-5 col-9 col-md-6 col-lg-4">
-        <div class="text-center">
-            <h1 class="h2">Login</h1>
-        </div>
-        <div id="loginForm" class="form-container mt-3">
-            <input type="hidden" name="form_type" value="login">
-            <form method="POST" action="{% url 'login_user' %}">
-                {% csrf_token %}
-                <div class="mb-3">
-                    <input type="text" class="form-control" name="username_or_email"
-                        placeholder="User Name or E-mail (required)"
-                        required autocomplete="off"
-                    >
-                </div>
-                <div class="mb-3">
-                    <input type="password" class="form-control" name="password"
-                        placeholder="Pasword (required)"
-                        required autocomplete="off"
-                    >
-                </div>
-                <p>
-                    <button type="submit" class="btn btn-primary">
-                        Login
-                    </button> Don't have an account? 
-                    <a class="link-dark fw-bolder link-offset-2 
-                        link-underline-opacity-25 link-underline-opacity-100-hover"
-                        href="{% url 'register_user' %}">Register here
-                    </a>.
-                </p>
-            </form>
-        </div>
+<div class="container mt-5 col-9 col-md-6 col-lg-4">
+    <div class="text-center">
+        <h1 class="h2">Login</h1>
     </div>
+    <div id="loginForm" class="form-container mt-3">
+        <input type="hidden" name="form_type" value="login">
+        <form method="POST" action="{% url 'login_user' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <input type="text" class="form-control" name="username_or_email"
+                    placeholder="User Name or E-mail (required)"
+                    required autocomplete="off"
+                >
+            </div>
+            <div class="mb-3">
+                <input type="password" class="form-control" name="password"
+                    placeholder="Pasword (required)"
+                    required autocomplete="off"
+                >
+            </div>
+            <p>
+                <button type="submit" class="btn btn-primary">
+                    Login
+                </button> Don't have an account? 
+                <a class="link-dark fw-bolder link-offset-2 
+                    link-underline-opacity-25 link-underline-opacity-100-hover"
+                    href="{% url 'register_user' %}">Register here
+                </a>.
+            </p>
+        </form>
+    </div>
+</div>
 
 {% endblock %}
