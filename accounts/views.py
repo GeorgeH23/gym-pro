@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -94,3 +95,13 @@ def logout_user(request):
         'You have been logged out successfully. Come back soon!',
         extra_tags='info')
     return redirect('/')
+
+
+# User profile view
+@login_required
+def user_profile(request):
+    user = request.user
+    context = {
+        'user': user
+        }
+    return render(request, 'user_profile.html', context)
