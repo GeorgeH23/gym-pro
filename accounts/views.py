@@ -1,9 +1,15 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib import messages
-from .forms import RegistrationForm
+
+from django.core.exceptions import ValidationError
+from django.core.validators import EmailValidator
+
+from accounts.models import UserProfile
+from .forms import RegistrationForm, UpdateProfileForm
 
 
 # User registration view
@@ -110,5 +116,45 @@ def user_profile(request):
 # Update Profile View
 @login_required
 def update_profile(request):
+    if UserProfile.objects.filter(user=request.user).exists():
+        user_profile = UserProfile.objects.get(user=request.user)
+    else:
+        # If the user's profile doesn't exist, create a new one
+        user_profile = UserProfile(user=request.user)
+        user_profile.save()
 
-    return render(request, 'user_profile_update.html', {})
+    if request.method == 'POST':
+        form = UpdateProfileForm(
+            request.POST,
+            instance=request.user
+        )
+        if form.is_valid():
+            # model instance is only in memory, not saved in DB (yet)
+            user = form.save(commit=False)
+            # Check if the user entered a new password
+            new_password = form.cleaned_data.get('new_password1')
+            new_password_confirm = form.cleaned_data.get('new_password2')
+
+            if new_password:
+                # Validate the new password
+                try:
+                    validate_password(new_password, user=request.user)
+                except ValidationError as errors:
+                    for error in errors.error_list:
+                        form.add_error('new_password1', error)
+                    return render(request, 'user_update.html', {'form': form})
+
+                # Check if new_password1 and new_password2 match
+                if new_password != new_password_confirm:
+                    form.add_error('new_password2', 'The two password fields didn\'t match.')
+                    return render(request, 'user_update.html', {'form': form})
+
+                # Handle password update logic here
+                user.set_password(new_password)
+                user.save()
+                update_session_auth_hash(request, user)
+
+    else:
+        form = UpdateProfileForm(instance=request.user)
+
+    return render(request, 'user_update.html', {'form': form})
