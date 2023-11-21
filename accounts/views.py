@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login, logout, update_session_auth
 from django.contrib import messages
 
 from django.core.exceptions import ValidationError
-from django.core.validators import EmailValidator
+from django.core.validators import validate_email
 
 from accounts.models import UserProfile
 from .forms import RegistrationForm, UpdateProfileForm
@@ -146,14 +146,49 @@ def update_profile(request):
 
                 # Check if new_password1 and new_password2 match
                 if new_password != new_password_confirm:
-                    form.add_error('new_password2', 'The two password fields didn\'t match.')
+                    form.add_error(
+                        'new_password2',
+                        'The two password fields didn\'t match.'
+                    )
                     return render(request, 'user_update.html', {'form': form})
 
                 # Handle password update logic here
                 user.set_password(new_password)
                 user.save()
                 update_session_auth_hash(request, user)
+            
+            # Verify if user changed his email
+            new_email = form.cleaned_data.get('email')
+            if new_email and new_email != user.email:
+                try:
+                    # Validate the new email format
+                    validate_email(new_email)
+                except ValidationError:
+                    form.add_error(
+                        'email',
+                        'The format of the email is invalid.'
+                    )
+                    return render(request, 'user_update.html', {'form': form})
 
+                # Check if the new email address is unique
+                if User.objects.filter(email=new_email).exclude(
+                        username=user.username
+                    ).exists():
+                    form.add_error(
+                        'email',
+                        'This email address is already in use.'
+                    )
+                    return render(request, 'user_update.html', {'form': form})
+
+                # Update the email address
+                user.email = new_email
+                user.save()
+            
+            user.save()
+            messages.success(request, (
+                'Your profile was successfully updated!'),
+                extra_tags='success')
+            return redirect('user_profile')
     else:
         form = UpdateProfileForm(instance=request.user)
 
