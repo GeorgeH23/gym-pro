@@ -1,0 +1,49 @@
+{% extends "workouts/base.html" %} {% load static %} {% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Update {{ user.username | capfirst }}'s Profile</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data"> 
+                        {% csrf_token %} 
+                        {{ form.non_field_errors }}
+
+                        <div class="mb-3">
+                            {{ form.email.label_tag }} {{ form.email }} 
+                            {% for error in form.email.errors %}
+                                <p class="text-danger">
+                                    {{ error }}
+                                </p> 
+                            {% endfor %}
+                        </div>
+                        <div class="mb-2">
+                            {{ form.new_password1 }} 
+                            {% for error in form.new_password1.errors %}
+                                <p class="text-danger">
+                                    {{ error }}
+                                </p> 
+                            {% endfor %}
+                        </div>
+                        <div class="mb-2">
+                            {{ form.new_password2 }} 
+                            {% for error in form.new_password2.errors %}
+                                <p class="text-danger">
+                                    {{ error }}
+                                </p> 
+                            {% endfor %}
+                        </div>
+                        <div class="container text-center">
+                            <button type="submit" class="btn btn-primary"> 
+                                Update Profile
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+{% endblock %}
