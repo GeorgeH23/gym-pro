@@ -63,7 +63,7 @@ def login_user(request):
 
         if user:
             form = authenticate(
-                request, username=identifier, password=password)
+                request, username=user.username, password=password)
             if form is not None:
                 login(request, form)
                 messages.success(
