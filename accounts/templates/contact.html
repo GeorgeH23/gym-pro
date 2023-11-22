@@ -29,4 +29,45 @@
     </div>
   </div>
 
+  <!-- Success Modal -->
+  <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                    <h5 class="modal-title">Success!</h5>
+                    <button type="button" class="btn-close" 
+                        data-bs-dismiss="modal" aria-label="Close">
+                    </button>
+              </div>
+              <div class="modal-body">
+                    <p>Your message was sent successfully.</p>
+              </div>
+              <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" 
+                        data-bs-dismiss="modal">
+                        Close
+                    </button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Display the modals based on the URL parameters -->
+  {% if messages %}
+    {% for message in messages %}
+      {% if message.tags == 'success' %}
+        <script>
+          $(document).ready(function () {
+            $('#successModal').modal('show');
+          });
+        </script>
+      {% elif message.tags == 'danger' %}
+        <script>
+          $(document).ready(function () {
+            $('#errorModal').modal('show');
+          });
+        </script>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
 {% endblock %}
