@@ -9,7 +9,7 @@ from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
 
 from accounts.models import UserProfile
-from .forms import RegistrationForm, UpdateProfileForm
+from .forms import ContactForm, RegistrationForm, UpdateProfileForm
 
 
 # User registration view
@@ -203,3 +203,24 @@ def delete_account(request):
         return redirect('/')
 
     return render(request, 'user_profile.html', {'user': request.user})
+
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            messages.success(request, 'Your message was sent successfully.')
+        else:
+            messages.error(
+                request,
+                'There was an error sending your message. Please try again.'
+            )
+        return redirect('contact')
+    # Pre-fill the email field if the user is authenticated
+    if request.user.is_authenticated:
+        initial_data = {'email': request.user.email}
+        form = ContactForm(initial=initial_data)
+    else:
+        form = ContactForm()
+
+    return render(request, 'contact.html', {'form': form})
