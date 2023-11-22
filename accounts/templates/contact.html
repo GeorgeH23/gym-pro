@@ -1,0 +1,32 @@
+{% extends 'workouts/base.html' %}
+{% load static %}
+{% block content %}
+  <!-- Contact Form -->
+  <div class="container mt-5 col-9 col-md-6 col-lg-4">
+    <div class="text-center">
+      <h1 class="h2">Contact Us</h1>
+    </div>
+    <div id="contactForm" class="form-container mt-3">
+      <form method="post" action="{% url 'contact' %}">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="mb-3">
+            {{ form.fullName }}
+            {{ form.fullName.errors }}
+        </div>
+        <div class="mb-3">
+            {{ form.email }}
+            {{ form.email.errors }}
+        </div>
+        <div class="mb-2">
+            {{ form.message }}
+            {{ form.message.errors }}
+        </div>
+        <div class="form-group text-end">
+            <button type="submit" class="btn btn-primary">Send</button>
+          </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
