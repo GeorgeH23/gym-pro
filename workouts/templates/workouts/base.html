@@ -90,7 +90,7 @@
                 {% if request.path == '/contact' %}
                     active
                 {% endif %}">
-                <a class="nav-link" href="">Contact</a>
+                <a class="nav-link" href="{% url 'contact' %}">Contact</a>
             </li>
             </ul>
         </div>
@@ -169,7 +169,7 @@
                 <!-- Right Section: Contact Us Link -->
                 <div class="col-md-4 col-sm-12 text-center text-md-right footer-icon-color">
                     <h3>
-                        <a href="contact-us.html" >Find us 
+                        <a href="{% url 'contact' %}" >Find us 
                             <i class="fas fa-map-marker-alt"></i>
                         </a>
                     </h3>
