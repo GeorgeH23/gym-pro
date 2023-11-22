@@ -193,3 +193,13 @@ def update_profile(request):
         form = UpdateProfileForm(instance=request.user)
 
     return render(request, 'user_update.html', {'form': form})
+
+
+@login_required
+def delete_account(request):
+    if request.method == 'POST':
+        # Delete user and log out
+        request.user.delete()
+        return redirect('/')
+
+    return render(request, 'user_profile.html', {'user': request.user})
