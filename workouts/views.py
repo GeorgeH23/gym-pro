@@ -152,3 +152,27 @@ class WorkoutUpdateView(LoginRequiredMixin, View):
         }
         return render(request, 'workouts/edit_workout.html', context)
     
+
+# Delete Workout View
+class WorkoutDeleteView(LoginRequiredMixin, View):
+    def get(self, request, slug):
+        workout = get_object_or_404(Workout, slug=slug)
+        workout.delete()
+
+        messages.success(
+            request,
+            (f'Workout "{workout.title}" successfully deleted!'),
+            extra_tags='success'
+            )
+
+        return redirect('user_page')
+
+
+def workout_delete_confirmation(request, workout_id):
+    workout = get_object_or_404(Workout, id=workout_id)
+
+    if request.method == 'POST':
+        workout.delete()
+        return redirect('user_page')
+
+    return render(request, 'workouts/delete_workout.html', {'workout': workout})
