@@ -16,7 +16,7 @@
           <th class="small-none">#</th>
           <th>Type</th>
           <th>Title</th>
-          <th class="small-none">Intensity</th>
+          <th>Intensity</th>
           <th class="text-center">Modify</th>
         </tr>
       </thead>
@@ -26,9 +26,12 @@
           <td class="small-none align-middle">{{ forloop.counter }}</td>
           <td class="h6 align-middle">{{ workout.type }}</td>
           <td class="align-middle">
-            <a href="" class="workout-link">{{ workout.title }}</a>
+            <a href="{% url 'workout_detail' slug=workout.slug %}" 
+              class="workout-link">
+              {{ workout.title }}
+            </a>
           </td>
-          <td class="small-none h6 align-middle">{{ workout.category }}</td>
+          <td class="small-none h6 align-middle">{{ workout.intensity }}</td>
           <td class="align-middle">
             <div class="d-flex align-items-center gap-1 justify-content-center">
               <a href="" class="btn btn-primary btn-sm">Edit</a>
