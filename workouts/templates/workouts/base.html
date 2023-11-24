@@ -56,12 +56,21 @@
             <!-- Navbar items available if not logged in -->
             {% if user.is_authenticated %}
                 <li class="nav-item 
-                    {% if request.path == '/user_page/' or request.path == '/add_workout/' %}
+                    {% if request.path == '/user_page/' %}
                         active
                     {% endif %}">
                     <a class="nav-link"
                         href="{% url 'user_page' %}">
                         My Workouts
+                    </a>
+                </li>
+                <li class="nav-item 
+                    {% if request.path == '/add_workout/' %}
+                        active
+                    {% endif %}">
+                    <a class="nav-link"
+                        href="{% url 'add_workout' %}">
+                        Add Workout
                     </a>
                 </li>
                 <li class="nav-item 
