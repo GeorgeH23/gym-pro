@@ -38,6 +38,32 @@
                                 <strong>Added on:</strong> 
                                 {{ workout.created_on|date:"F d, Y" }}
                             </p>
+                            <div class="d-flex flex-row justify-content-start">
+                                <p class="card-text text-start pt-2">
+                                    <strong>Favorite:</strong> 
+                                    {{ workout.likes_counter }}
+                                </p>
+                                <form method="post" action="{% url 'like_workout_detail' workout.slug %}"> 
+                                    {% csrf_token %} 
+                                    <input type="hidden" name="q" 
+                                        value="{{ request.GET.q }}"
+                                    >
+                                    {% if request.user in workout.likes.all %}
+                                    <button type="submit" 
+                                        class="btn shadow-none m-0" 
+                                        aria-label="Unlike"
+                                    >
+                                        <i class="fa fa-star text-danger"></i>
+                                    {% else %}
+                                    <button type="submit" 
+                                        class="btn shadow-none m-0" 
+                                        aria-label="Like"
+                                    >
+                                        <i class="fa fa-star text-primary"></i>
+                                    {% endif %}
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
