@@ -1,0 +1,110 @@
+{% extends "Workouts/base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% if form.non_field_errors %}
+  <div class="alert alert-danger" role="alert">
+    {{ form.non_field_errors }}
+  </div>
+{% endif %}
+
+<div class="container mt-5 col-md-6 col-lg-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title text-center">Add a Workout</h2>
+                </div>
+                <div class="mb-6">
+                    <div class="d-flex justify-content-center">
+                        <form class="col-9" action="{% url 'add_workout' %}" 
+                            method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="form-label" for="title">
+                                    Title:
+                                </label>
+                                <input type="text" class="form-control" 
+                                    id="title" name="title" required
+                                    placeholder="Title (required)"
+                                >
+                                {% if form.title.errors %}
+                                    <div class="alert alert-danger" 
+                                        role="alert">
+                                        {{ form.title.errors }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                
+                            <div class="form-group">
+                                <label class="form-label" for="description">
+                                    Description:
+                                </label>
+                                <textarea class="form-control" id="description" 
+                                    name="description" rows="10"  required
+                                    placeholder="Description (required)">
+                                </textarea>
+                                {% if form.description.errors %}
+                                    <div class="alert alert-danger" 
+                                        role="alert">
+                                        {{ form.description.errors }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                
+                            <div class="form-group">
+                                <label class="form-label" for="type">
+                                    Type:
+                                </label>
+                                {{ form.type }}
+                                {% if form.type.errors %}
+                                    <div class="alert alert-danger" 
+                                        role="alert">
+                                        {{ form.type.errors }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                
+                            <div class="form-group">
+                                <label class="form-label" for="intensity">
+                                    Intensity:
+                                </label>
+                                {{ form.intensity }}
+                                {% if form.intensity.errors %}
+                                    <div class="alert alert-danger" 
+                                        role="alert">
+                                        {{ form.intensity.errors }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                
+                            <div class="form-group">
+                                <label class="form-label" for="image_url">
+                                    Image URL:
+                                </label>
+                                <input type="file" class="form-control" 
+                                    id="image_url" name="image_url"
+                                >
+                                {% if form.image_url.errors %}
+                                    <div class="alert alert-danger" 
+                                        role="alert">
+                                        {{ form.image_url.errors }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-primary">
+                                    Add Workout
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
