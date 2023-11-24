@@ -47,6 +47,23 @@ class WorkoutDetail(LoginRequiredMixin, View):
         return render(request, 'workouts/detail_workout.html', context=context)
 
 
+# Like Workout View (from the 'workout_detail' view)
+@login_required
+def like_workout_detail(request, slug):
+    if request.method == 'POST' and request.user.is_authenticated:
+        workout = get_object_or_404(Workout, slug=slug)
+
+        # Check the like status
+        liked_by_user = workout.likes.filter(id=request.user.id).exists()
+
+        if liked_by_user:
+            workout.likes.remove(request.user)
+        else:
+            workout.likes.add(request.user)
+
+        return redirect('detail_workout', slug=slug)
+
+
 # Workout Add View
 class AddWorkoutView(LoginRequiredMixin, View):
     def get(self, request):
