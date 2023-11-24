@@ -61,9 +61,10 @@ main {
     margin: 10px 0;
 }
 
-.home-title button {
+.home-title button, .home-title a, .add-button {
     background-color: #333333;
     border-radius: 22px;
+    border-color: #333333;
     display: inline-block;
     cursor: pointer;
     color: #F8F9FA;
@@ -75,7 +76,7 @@ main {
     font-weight: bold;
 }
 
-.home-title button:hover {
+.home-title button:hover, .home-title a:hover {
     background-color: #FFAF16;
     text-decoration: none;
     color: #333333;
@@ -105,7 +106,7 @@ main {
         font-size: 11rem;
     }
 
-    .home-title button {
+    .home-title button, .home-title a, .add-button {
         font-size: 1.1rem;
         padding: 15px 42px;
     }
@@ -121,7 +122,7 @@ main {
         font-size: 6rem;
     }
 
-    .home-title button {
+    .home-title button, .home-title a, .add-button {
         font-size: 0.8rem;
         padding: 12px 30px;
     }
@@ -151,7 +152,7 @@ main {
         font-size: 4rem;
     }
 
-    .home-title button {
+    .home-title button, .home-title a, .add-button {
         font-size: 0.6rem;
         padding: 10px 20px;
     }
@@ -168,5 +169,17 @@ main {
 
     .navbar-nav .nav-item a {
         font-size: small;
+    }
+
+    .col-md-12 {
+        padding-bottom: 1rem;
+    }
+
+    .text-size-h1 {
+        font-size: 1.5rem;
+    }
+
+    .text-size-h3 {
+        font-size: 1rem;
     }
 }
