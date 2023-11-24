@@ -1,39 +1,81 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<h1 align="center">Gym Pro Fitness</h1>
 
-Welcome,
+[View the live project here](https://gym-pro-fitness-d84818eee5ff.herokuapp.com/)
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Table of Contents
+  * [Table of Contents](#table-of-contents)
+  * [Introduction](#introduction)
+  * [User Stories](#user-stories)
+  * [UX](#ux)
+    + [Typography](#typography)
+    + [Wireframes](#wireframes)
+  * [Accessibility](#accessibility)
+  * [Database Design](#database-design)
+  * [Features](#features)
+  * [Existing Features](#existing-features)
+  * [Future Features](#features-features)
+  * [Issues and Bugs](#issues-and-bugs)
+  * [Technologies Used](#technologies-used)
+  * [Testing](#testing)
+  * [Deployment](#deployment)
+    + [Local Deployment](#local-deployment)
+    + [Heroku Deployment](#heroku-deployment)
+  * [Credits](#credits)
+    + [Content](#content)
+    + [Media](#media)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
 
-## Codeanywhere Reminders
+## Introduction
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+## User Stories
 
-`python3 -m http.server`
+## UX
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+## Accessibility
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+## Database Design
 
-`http_server`
+## Features
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Existing Features
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+## Future Features
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+## Issues and Bugs
 
-To log into the Heroku toolbelt CLI:
+## Technologies Used
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Testing
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
 
----
+## Deployment
 
-Happy coding!
+- This project was developed using [CodeAnyWhere](https://codeanywhere.com/).
+- I have used the terminal to commit changes in my GitHub repository.
+- In the GitHub I have created User Stories and Epics, the commits are related to them based on the id that gitHub generated for each issue that was created.
+
+### Prepare before Deploy
+1. Create an `.env` file in your project, at root level.
+2. Add this file your secret keys.
+3. Run `pip3 install -r requirements.txt` to install needed packages.
+4. Run `python3 manage.py migrate` to migrate your DB models.
+5. Run `python3 manage.py createsuperuser` to create a superuser.
+6. Run `python manage.py runserver` to start the server.
+
+### Deploying on Heroku Pages
+To deploy this web app to Heroku Pages from GitHub repository, the following steps were taken:
+
+1. Log into [GitHub](https://github.com/login "Link to GitHub login page") or [create an account](https://github.com/join "Link to GitHub create account page").
+2. Locate the [GitHub Repository](https://github.com/GeorgeH23/gym-pro-fitness "Link to GitHub Repo").
+3. Create an account on [Heroku:](https://dashboard.heroku.com/apps).
+4. Create a new Heroku app.
+5. Set the BuilPacks and the Config Vars.
+6. Link the Heroku app to the git hub repository.
+7. Click on Deploy.
+
+
+## Credits
+
+### Content 
+- The ReadME file was inspired from my first project [Travel Addict](https://github.com/GeorgeH23/travel-addict/blob/main/README.md) and [Books4Life](https://github.com/tomdu3/books4life/)
+- All other content was written by the developer
