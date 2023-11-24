@@ -1,0 +1,57 @@
+{% extends "workouts/base.html" %}
+
+{% load static %}
+
+{% block content %}
+  <div class="container mt-5 col-9 col-xs-8 col-md-6 col-lg-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <h3 class="card-title text-center text-size-h3 card-header">
+                    {{ workout.title }}
+                    <a href="javascript:history.go(-1)">
+                        <i class="fa fa-arrow-left"></i>
+                    </a>
+                </h3>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-12 col-md-6 text-center">
+                        {% if 'default' in workout.image_url.url %}
+                        <img src="{% static 'images/default-workout.webp' %}"
+                            class="card-img-top mx-auto workout-image"
+                            alt="{{ workout.title }} image">
+                        {% else %}
+                        <img src="{{ workout.image_url.url }}"
+                            class="card-img-top mx-auto"
+                            alt="{{ workout.title }} image">
+                        {% endif %}
+                    </div>
+                    <div class="col-md-6 text-left">
+                        <div class="card-body">
+                            <p class="card-text">
+                                <strong>Type:</strong> {{ workout.type }}
+                            </p>
+                            <p class="card-text">
+                                <strong>Intensity:</strong> 
+                                {{ workout.intensity }}
+                            </p>
+                            <p class="card-text"> 
+                                <strong>Added on:</strong> 
+                                {{ workout.created_on|date:"F d, Y" }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row col-md-12">
+        <div class="card-body">
+          <div class="card-text description">
+            {{ workout.description|safe|linebreaksbr }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  {% endblock %}
