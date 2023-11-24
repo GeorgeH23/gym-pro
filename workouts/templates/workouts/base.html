@@ -56,6 +56,15 @@
             <!-- Navbar items available if not logged in -->
             {% if user.is_authenticated %}
                 <li class="nav-item 
+                    {% if request.path == '/workouts/user_page/' %}
+                        active
+                    {% endif %}">
+                    <a class="nav-link"
+                        href="{% url 'user_page' %}">
+                        My Workouts
+                    </a>
+                </li>
+                <li class="nav-item 
                     {% if request.path == '/users/profile/' %}
                         active
                     {% endif %}">
@@ -167,7 +176,8 @@
                 </div>
     
                 <!-- Right Section: Contact Us Link -->
-                <div class="col-md-4 col-sm-12 text-center text-md-right footer-icon-color">
+                <div class="col-md-4 col-sm-12 text-center text-md-right 
+                    footer-icon-color">
                     <h3>
                         <a href="{% url 'contact' %}" >Find us 
                             <i class="fas fa-map-marker-alt"></i>
