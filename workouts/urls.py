@@ -9,4 +9,5 @@ urlpatterns = [
     path('add_workout/', views.AddWorkoutView.as_view(), name='add_workout'),
     path('details/<slug:slug>/',views.WorkoutDetail.as_view(), name='workout_detail'),
     path('like_workout_detail/<slug:slug>/', views.like_workout_detail, name='like_workout_detail'),
+    path('edit/<slug:slug>', views.WorkoutUpdateView.as_view(), name='edit_workout'),
 ]
