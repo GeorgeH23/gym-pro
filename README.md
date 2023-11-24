@@ -45,6 +45,24 @@
 
 ## Technologies Used
 
+- [HTML5](https://en.wikipedia.org/wiki/HTML5) used for templates
+- [CSS3](https://en.wikipedia.org/wiki/CSS) used for style
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript) used for interactivity
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) used to develop the backend
+
+- [Bootstrap](https://getbootstrap.com/) used to simplify the style process.
+- [Font Awesome](https://fontawesome.com/) used for icons.
+
+- [Django](https://www.djangoproject.com/) used for backend
+- [PostgreSQL](https://www.postgresql.org/) used to create the database
+- [ElephantSQL](https://www.elephantsql.com/) used to host the databse
+- [Cloudinary](https://cloudinary.com/) used to store images
+- [Summernote](https://summernote.org/) used to create a rich text editor for the website.
+- [gunicorn](https://pypi.org/project/gunicorn/) used to run the website on Heroku.
+- [dj_database_url](https://pypi.org/project/dj-database-url/) used to connect database on Heroku.
+- [psycopg2](https://pypi.org/project/psycopg2/) used to connect database on Heroku
+- [python-dotenv](https://pypi.org/project/python-dotenv/) used to hide sensitive information.
+
 
 ## Testing
 
