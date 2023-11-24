@@ -1,5 +1,8 @@
+from django.urls import reverse
 from django.views import View
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.utils.text import slugify
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from .models import Workout, Type, Intensity
@@ -39,3 +42,34 @@ class AddWorkoutView(LoginRequiredMixin, View):
         }
         return render(request, 'workouts/add_workout.html', context)
 
+    def post(self, request):
+        form = WorkoutForm(request.POST, request.FILES)
+        if form.is_valid():
+            user = request.user
+            workout = form.save(commit=False)
+            workout.user = user
+            workout.save()
+
+            messages.success(
+                request,
+                f'Workout "{workout.title}" successfully added!',
+                extra_tags='success'
+            )
+            return redirect('user_page')
+        else:
+            messages.error(
+                request,
+                'There was an error with the form. \
+                    Please correct the errors and try again.',
+                extra_tags='danger'
+            )
+
+        tipes = Type.objects.all()
+        intensities = Intensity.objects.all()
+
+        context = {
+            'form': form,
+            'tipes': tipes,
+            'intensities': intensities,
+        }
+        return render(request, 'workouts/add_workout.html', context)
