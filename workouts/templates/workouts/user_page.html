@@ -34,7 +34,7 @@
           <td class="small-none h6 align-middle">{{ workout.intensity }}</td>
           <td class="align-middle">
             <div class="d-flex align-items-center gap-1 justify-content-center">
-              <a href="" class="btn btn-primary btn-sm">Edit</a>
+              <a href="{% url 'edit_workout' slug=workout.slug %}" class="btn btn-primary btn-sm">Edit</a>
               <a href="" class="btn btn-danger btn-sm">Delete</a>
             </div>
           </td>
