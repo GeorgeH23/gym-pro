@@ -109,3 +109,46 @@ class AddWorkoutView(LoginRequiredMixin, View):
             'intensities': intensities,
         }
         return render(request, 'workouts/add_workout.html', context)
+
+
+# Workout Edit (Update) View
+class WorkoutUpdateView(LoginRequiredMixin, View):
+    def get(self, request, slug):
+        workout = get_object_or_404(Workout, slug=slug)
+        form = WorkoutForm(instance=workout)
+        tipes = Type.objects.all()
+        intensities = Intensity.objects.all()
+        workout.description = workout.description.strip()
+        context = {
+            'workout': workout,
+            'form': form,
+            'tipes': tipes,
+            'intensities': intensities,
+        }
+        return render(request, 'workouts/edit_workout.html', context)
+
+    def post(self, request, slug):
+        workout = get_object_or_404(Workout, slug=slug)
+        tipes = Type.objects.all()
+        intensities = Intensity.objects.all()
+        form = WorkoutForm(request.POST, request.FILES, instance=workout)
+
+        if form.is_valid():
+            # Save the form
+            form.save()
+
+            # Success message
+            messages.success(
+                request,
+                (f'Workout "{workout.title}" successfully updated!'),
+                extra_tags='success')
+            return redirect('user_page')
+
+        context = {
+            'workout': workout,
+            'form': form,
+            'tipes': tipes,
+            'intensities': intensities,
+        }
+        return render(request, 'workouts/edit_workout.html', context)
+    
