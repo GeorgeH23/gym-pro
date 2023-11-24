@@ -1,6 +1,6 @@
 from django.urls import reverse
 from django.views import View
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.text import slugify
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -26,6 +26,25 @@ def user_page(request):
         'workouts': user_workouts,
     }
     return render(request, 'workouts/user_page.html', context=context)
+
+
+# Workout Detail View
+class WorkoutDetail(LoginRequiredMixin, View):
+
+    def get(self, request, slug):
+        queryset = Workout.objects.all()
+        workout = get_object_or_404(queryset, slug=slug)
+
+        # like button
+        liked_by_user = False
+        if workout.likes.filter(id=request.user.id).exists():
+            liked_by_user = True
+
+        context = {
+            'workout': workout,
+            'liked_by_user': liked_by_user,
+             }
+        return render(request, 'workouts/detail_workout.html', context=context)
 
 
 # Workout Add View
