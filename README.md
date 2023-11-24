@@ -45,7 +45,40 @@
 
 ## Technologies Used
 
+
 ## Testing
+
+### User Tests
+
+### User Authentication Tests
+
+| Test Case | Description |
+| --- | --- |
+| User Registration | Test user registration with valid credentials. Ensure a user is created in the database. |
+| User Login | Test user login with valid credentials. Ensure the user is logged in. |
+| Protected View | Test access to a protected view without authentication. Ensure the user is redirected to the login page. |
+
+### Profile Tests
+
+| Test Case | Description |
+| --- | --- |
+| Update Profile | Test updating user profile information. Ensure changes are saved in the database. |
+| Change Password | Test changing the user password. Ensure the password is updated in the database. |
+
+### Workouts Tests
+
+| Test Case | Description |
+| --- | --- |
+| Add Workout | Test adding a workout through the form. Ensure the workout is saved in the database. |
+| View Workout | Test viewing a workout. Ensure the workout has the same details as it is in the database |
+| Edit Workout | Test editing an existing workout. Ensure changes are reflected in the database. |
+| Delete Workout | Test deleting a workout. Ensure the workout is removed from the database. |
+
+### Navigation and Menu Tests
+
+| Test Case | Description |
+| --- | --- |
+| Navigate through the Menu | Test navigating through different sections of the application's menu. Ensure the navigation works as expected. |
 
 
 ## Deployment
