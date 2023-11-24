@@ -52,7 +52,7 @@ class AddWorkoutView(LoginRequiredMixin, View):
 
             messages.success(
                 request,
-                f'Workout "{workout.title}" successfully added!',
+                (f'Workout "{workout.title}" successfully added!'),
                 extra_tags='success'
             )
             return redirect('user_page')

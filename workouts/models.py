@@ -2,11 +2,11 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-# Create your models here.
 
 # Type model
 class Type(models.Model):
     name = models.CharField(max_length=100)
+    objects = models.Manager()
 
     def __str__(self):
         return f'{self.name}'
@@ -19,6 +19,7 @@ class Type(models.Model):
 # Intensity model
 class Intensity(models.Model):
     name = models.CharField(max_length=100)
+    objects = models.Manager()
 
     def __str__(self):
         return f'{self.name}'
@@ -51,12 +52,10 @@ class Workout(models.Model):
     liked_by_user = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
+    objects = models.Manager()
 
     class Meta:
         ordering = ['-created_on']
-
-    def likes_counter(self):
-        return self.likes.count()
 
     def __str__(self):
         return f'{self.title}'

@@ -8,6 +8,7 @@ admin.site.register(Type)
 # Register Intensity Model
 admin.site.register(Intensity)
 
+
 @admin.register(Workout)
 class WorkoutAdmin(SummernoteModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
