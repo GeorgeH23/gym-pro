@@ -29,19 +29,19 @@
 
 ## User Stories
 
-[Back to top ⇧](#table-of-contents)
+###### [Back to top ⇧](#table-of-contents)
 
 ## UX
 
-[Back to top ⇧](#table-of-contents)
+###### [Back to top ⇧](#table-of-contents)
 
 ## Accessibility
 
-[Back to top ⇧](#table-of-contents)
+###### [Back to top ⇧](#table-of-contents)
 
 ## Database Design
 
-[Back to top ⇧](#table-of-contents)
+###### [Back to top ⇧](#table-of-contents)
 
 
 ## Features
@@ -84,7 +84,7 @@
 -   __Delete Profile Page:__
     - The "Delete Profile" feature allows users to permanently delete their account. User will be required to confirm the decision, as this action is irreversible.
 
-[Back to top ⇧](#table-of-contents)
+###### [Back to top ⇧](#table-of-contents)
 
 ### Future Features
 
@@ -100,11 +100,11 @@
 -   __Advanced User Roles:__
     - Introduce the roles "Admin" and  "Trainer" with specific permissions. Admins can manage the platform, while trainers may have the ability to curate and recommend workouts.
 
-[Back to top ⇧](#table-of-contents)
+###### [Back to top ⇧](#table-of-contents)
 
 ## Issues and Bugs
 
-[Back to top ⇧](#table-of-contents)
+###### [Back to top ⇧](#table-of-contents)
 
 
 ## Technologies Used
@@ -127,7 +127,7 @@
 - [psycopg2](https://pypi.org/project/psycopg2/) used to connect database on Heroku
 - [python-dotenv](https://pypi.org/project/python-dotenv/) used to hide sensitive information.
 
-[Back to top ⇧](#table-of-contents)
+###### [Back to top ⇧](#table-of-contents)
 
 
 ## Testing
@@ -164,7 +164,7 @@
 | --- | --- |
 | Navigate through the Menu | Test navigating through different sections of the application's menu. Ensure the navigation works as expected. |
 
-[Back to top ⇧](#table-of-contents)
+###### [Back to top ⇧](#table-of-contents)
 
 ## Deployment
 
@@ -191,7 +191,7 @@ To deploy this web app to Heroku Pages from GitHub repository, the following ste
 6. Link the Heroku app to the git hub repository.
 7. Click on Deploy.
 
-[Back to top ⇧](#table-of-contents)
+###### [Back to top ⇧](#table-of-contents)
 
 ## Credits
 
@@ -199,4 +199,4 @@ To deploy this web app to Heroku Pages from GitHub repository, the following ste
 - The ReadME file was inspired from my first project [Travel Addict](https://github.com/GeorgeH23/travel-addict/blob/main/README.md) and [Books4Life](https://github.com/tomdu3/books4life/)
 - All other content was written by the developer
 
-[Back to top ⇧](#table-of-contents)
+###### [Back to top ⇧](#table-of-contents)
