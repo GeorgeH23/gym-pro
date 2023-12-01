@@ -35,13 +35,64 @@
 
 ## Database Design
 
+
 ## Features
 
-## Existing Features
+### Existing Features
 
-## Future Features
+-   __Navbar__
+    - The navbar provides a navigation menu for users to easily access different sections of the application. It includes links to the homepage, user profile, workout-related features, and other relevant pages.
+
+-   __Footer__
+    - The footer is located at the bottom of the webpage and contains the logo, the social media and a link to the contact page. It provides a consistent location for secondary navigation.
+
+-   __Homepage__
+    - The homepage serves as the landing page for my application. A Gif was added on the background of the title. Was set it with css and Bootstrap.
+
+-   __Login/Registration Pages:__
+    - The login page allows existing users to log in by entering their credentials (username/email and password). The registration page enables new users to create an account by providing necessary information, such as username, email, and password. The forms has validation check for different case of errors (e.g.: 'User already exist', 'Your password must to contains...', 'Your passwords didn't match', 'Email is not have the correct form')
+
+-   __Contact Page:__
+    - The contact page allows users to reach out to the platform administrators. Includes a form with fields for name, email, and message, allowing users to submit inquiries or feedback. If the user is authenticated the email will fill in automatically.
+
+-   __View Details of a Workout:__
+    - This feature allows users to view detailed information about a specific workout. Include the workout title, description, type, intensity, calories burned, and image if exist. Users can access this information by clicking on a workout from the list or search results.
+
+-   __My Workouts:__
+    - The "My Workouts" page displays a list of workouts created by the logged-in user. It provides a personalized view, allowing users to manage and interact with their own workouts. 
+
+-   __Edit Workout:__
+    - Users can edit the details of a workout they created. The "Edit Workout" feature provides a form pre-filled with the existing details, allowing users to make modifications and update the workout.
+
+-   __Delete Workout:__
+    - The "Delete Workout" feature allows users to remove a workout they created. This action is irreversible, user will be asked to confirm the deletion with the posiblility to cancel the action of deletion.
+
+-   __Profile Page:__
+    - The profile page showcases information about the user, including their username and email and 2 buttons, one for edit and one for delete.
+
+-   __Edit Profile Page:__
+    - Users can modify their profile information page. This includes updating the username, email, and password.
+
+-   __Delete Profile Page:__
+    - The "Delete Profile" feature allows users to permanently delete their account. User will be required to confirm the decision, as this action is irreversible.
+
+### Future Features
+
+-   __User Ratings and Reviews:__
+    - Enable users to rate and leave reviews for workouts. This can provide valuable feedback for both workout creators and users looking for high-quality content.
+
+-   __Workout Challenges:__
+    - Implement a feature that allows users to create or participate in workout challenges. Users can set goals, track progress, and compete with others.
+
+-   __Notification System:__
+    - Notification system to alert users about new comments, likes. Notifications keep users engaged and informed.
+
+-   __Advanced User Roles:__
+    - Introduce the roles "Admin" and  "Trainer" with specific permissions. Admins can manage the platform, while trainers may have the ability to curate and recommend workouts.
+
 
 ## Issues and Bugs
+
 
 ## Technologies Used
 
@@ -107,11 +158,11 @@
 
 ### Prepare before Deploy
 1. Create an `.env` file in your project, at root level.
-2. Add this file your secret keys.
+2. Add in this file your secret keys.
 3. Run `pip3 install -r requirements.txt` to install needed packages.
 4. Run `python3 manage.py migrate` to migrate your DB models.
 5. Run `python3 manage.py createsuperuser` to create a superuser.
-6. Run `python manage.py runserver` to start the server.
+6. Run `python3 manage.py runserver` to start the server.
 
 ### Deploying on Heroku Pages
 To deploy this web app to Heroku Pages from GitHub repository, the following steps were taken:
