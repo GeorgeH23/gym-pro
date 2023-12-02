@@ -154,7 +154,7 @@ main {
 }
 
 /* Media query for big screens */
-@media screen and (min-width: 1300px) {
+@media screen and (max-width: 1500px) {
     .home-title h1 {
         font-size: 11rem;
     }
@@ -162,6 +162,10 @@ main {
     .home-title button, .home-title a, .add-button {
         font-size: 1.1rem;
         padding: 15px 42px;
+    }
+
+    .col-md-12 {
+        padding-bottom: 1rem;
     }
 }
 
@@ -192,6 +196,10 @@ main {
 
     .navbar-nav .nav-item a {
         font-size: medium;
+    }
+
+    .col-md-12 {
+        padding-bottom: 1rem;
     }
 }
 
