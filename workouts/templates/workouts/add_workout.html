@@ -12,7 +12,7 @@
 <div class="container mt-5 col-md-6 col-lg-4">
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
+            <div class="card workout-card">
                 <div class="card-header">
                     <h2 class="card-title text-center">Add a Workout</h2>
                 </div>
@@ -23,7 +23,7 @@
                             {% csrf_token %}
                             <div class="form-group">
                                 <label class="form-label" for="title">
-                                    Title:
+                                    <strong>Title:</strong>
                                 </label>
                                 <input type="text" class="form-control" 
                                     id="title" name="title" required
@@ -39,10 +39,10 @@
                 
                             <div class="form-group">
                                 <label class="form-label" for="description">
-                                    Description:
+                                    <strong>Description:</strong>
                                 </label>
                                 <textarea class="form-control" id="description" 
-                                    name="description" rows="10"  required
+                                    name="description" rows="4"  required
                                     placeholder="Description (required)">
                                 </textarea>
                                 {% if form.description.errors %}
@@ -53,35 +53,52 @@
                                 {% endif %}
                             </div>
                 
-                            <div class="form-group">
-                                <label class="form-label" for="type">
-                                    Type:
-                                </label>
-                                {{ form.type }}
-                                {% if form.type.errors %}
-                                    <div class="alert alert-danger" 
-                                        role="alert">
-                                        {{ form.type.errors }}
-                                    </div>
-                                {% endif %}
+                            <div class="form-group-container">
+                                <div class="form-group">
+                                    <label class="form-label" for="type">
+                                        <strong>Type:</strong>
+                                    </label></br>
+                                    {{ form.type }}
+                                    {% if form.type.errors %}
+                                        <div class="alert alert-danger" 
+                                            role="alert">
+                                            {{ form.type.errors }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            
+                                <div class="form-group">
+                                    <label class="form-label" for="intensity">
+                                        <strong>Intensity:</strong>
+                                    </label></br>
+                                    {{ form.intensity }}
+                                    {% if form.intensity.errors %}
+                                        <div class="alert alert-danger" 
+                                            role="alert">
+                                            {{ form.intensity.errors }}
+                                        </div>
+                                    {% endif %}
+                                </div>
                             </div>
-                
+
                             <div class="form-group">
-                                <label class="form-label" for="intensity">
-                                    Intensity:
+                                <label class="form-label" for="burned">
+                                    <strong>Burn:</strong>
                                 </label>
-                                {{ form.intensity }}
-                                {% if form.intensity.errors %}
+                                <input type="number" class="form-control" 
+                                    id="burned" name="burned" 
+                                    required placeholder="Burn target calories">
+                                {% if form.burned.errors %}
                                     <div class="alert alert-danger" 
                                         role="alert">
-                                        {{ form.intensity.errors }}
+                                        {{ form.burned.errors }}
                                     </div>
                                 {% endif %}
                             </div>
                 
                             <div class="form-group">
                                 <label class="form-label" for="image_url">
-                                    Image URL:
+                                    <strong>Image URL:</strong>
                                 </label>
                                 <input type="file" class="form-control" 
                                     id="image_url" name="image_url"
@@ -95,7 +112,8 @@
                             </div>
                 
                             <div class="form-group text-center">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" 
+                                    class="btn btn-action btn-edit">
                                     Add Workout
                                 </button>
                             </div>
