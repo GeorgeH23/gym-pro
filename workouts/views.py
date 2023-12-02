@@ -1,6 +1,7 @@
 from django.http import HttpResponseBadRequest
 from django.urls import reverse
 from django.views import View
+from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.text import slugify
 from django.contrib import messages
@@ -185,3 +186,21 @@ def workout_delete_confirmation(request, workout_id):
         return redirect('user_page')
 
     return render(request, 'workouts/delete_workout.html', {'workout': workout})
+
+# https://docs.djangoproject.com/en/4.0/topics/db/queries/#complex-lookups-with-q-objects
+# Find Workout View
+@login_required
+def search_workout(request):
+
+    query = request.GET.get('q')
+    if query:
+        workouts = Workout.objects.filter(
+            Q(title__icontains=query) | Q(type__name__icontains=query) |
+            Q(intensity__name__icontains=query))
+    else:
+        workouts = Workout.objects.all()
+
+    context = {
+        'workouts': workouts,
+    }
+    return render(request, 'workouts/search_workout.html', context=context)

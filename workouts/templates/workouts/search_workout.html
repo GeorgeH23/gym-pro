@@ -1,0 +1,62 @@
+{% extends "workouts/base.html" %}
+{% load static %}
+
+{% block content %}
+  <!-- Search Section -->
+  <div class="title text-center pt-4">
+    <h1>Search Results</h1>
+  </div>
+
+    <div class="text-center pt-lg-4 pt-sm-2">
+        <div class="col-lg-5 col-md-8 col-10 mx-auto">
+        <!-- Search form -->
+        <form method="GET" action="{% url 'search_workout' %}" 
+            class="d-flex align-items-center gap-1">
+            <input placeholder="Search workouts" class="form-control me-2"
+                value="{{ request.GET.q|default:'' }}" name="q" type="text"
+            >
+            <button type="submit" class="btn btn-action btn-edit">
+                Search
+            </button>
+        </form>
+        </div>
+    </div>
+
+    <div class="container mt-5 pt-4">
+        <div class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4">
+            {% for workout in workouts %}
+            <div class="col-md-3 mb-4 mt-4 pt-2">
+                <div class="card border-0 bg-light rounded shadow">
+                    <div class="card-body p-8">
+                        <div class="d-flex justify-content-between">
+                            <strong class="text-danger">
+                                {{ workout.intensity }}
+                            </strong>
+                            <h5>{{ workout.title }}</h5>
+                        </div>
+
+                        <div class="mt-3 text-center">
+                            <span class="text-muted d-block">
+                                <i class="fa fa-heart" aria-hidden="true"></i> 
+                                {{ workout.type }}
+                            </span>
+                            <span class="text-muted d-block">
+                                <i class="fa fa-fire" aria-hidden="true"></i> 
+                                {{ workout.burned }}
+                            </span>
+                        </div>
+
+                        <div class="mt-3 text-center">
+                            <a class="btn btn-action btn-edit"
+                            href="{% url 'workout_detail' slug=workout.slug %}">
+                                <small>View Details</small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
