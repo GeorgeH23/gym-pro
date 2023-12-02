@@ -3,6 +3,12 @@
 
 {% block content %}
 
+{% if form.non_field_errors %}
+  <div class="alert alert-danger my-3" role="alert">
+    {{ form.non_field_errors }}
+  </div>
+{% endif %}
+
 <div class="container mt-5 col-md-6 col-lg-4">
     <div class="row">
         <div class="col-md-12">
@@ -12,63 +18,106 @@
                 </div>
                 <div class="mb-6">
                     <div class="d-flex justify-content-center">
-                        <form class="col-9" action="{% url 'edit_workout' workout.slug %}" 
+                        <form class="col-9" 
+                            action="{% url 'edit_workout' workout.slug %}" 
                             method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="form-group">
                                 <label class="form-label" for="title">
-                                    Title:
+                                    <strong>Title:</strong>
                                 </label>
                                 <input type="text" class="form-control" 
                                     id="title" name="title" required
                                     value="{{ workout.title }}"
                                     placeholder="Title (required)"
                                 >
+                                {% if form.title.errors %}
+                                <div class="alert alert-danger" 
+                                    role="alert">
+                                    {{ form.title.errors }}
+                                </div>
+                                {% endif %}
                             </div>
                 
                             <div class="form-group">
                                 <label class="form-label" for="description">
-                                    Description:
+                                    <strong>Description:</strong>
                                 </label>
                                 <textarea class="form-control" id="description" 
-                                    name="description" rows="10"  required
+                                    name="description" rows="4"  required
                                     value="{{ workout.description }}"
                                     placeholder="Description (required)">
                                 </textarea>
+                                {% if form.description.errors %}
+                                <div class="alert alert-danger" 
+                                    role="alert">
+                                    {{ form.description.errors }}
+                                </div>
+                                {% endif %}
                             </div>
-                
-                            <div class="form-group">
-                                <label class="form-label" for="type">
-                                    Type:
-                                </label>
-                                {{ form.type }}
-                                <script>
-                                    // Disable the 'type' field
-                                    document.getElementById("id_type").disabled = true;
-                                </script>
+
+                            <div class="form-group-container">
+                                <div class="form-group">
+                                    <label class="form-label" for="type">
+                                        <strong>Type:</strong>
+                                    </label>
+                                    {{ form.type }}
+                                    {% if form.type.errors %}
+                                    <div class="alert alert-danger" 
+                                        role="alert">
+                                        {{ form.type.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                    
+                                <div class="form-group">
+                                    <label class="form-label" for="intensity">
+                                        <strong>Intensity:</strong>
+                                    </label>
+                                    {{ form.intensity }}
+                                    {% if form.intensity.errors %}
+                                    <div class="alert alert-danger" 
+                                        role="alert">
+                                        {{ form.intensity.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
                             </div>
-                
+
                             <div class="form-group">
-                                <label class="form-label" for="intensity">
-                                    Intensity:
+                                <label class="form-label" for="burned">
+                                    <strong>Burned:</strong>
                                 </label>
-                                <select class="form-select" id="intensity" 
-                                    name="intensity">
-                                    {% for intensity in intensities %}
-                                      <option value="{{ intensity.id }}"
-                                      {% if workout.intensity == intensity %} selected {% endif %}>
-                                        {{ intensity.name }}
-                                      </option>
-                                    {% endfor %}
-                                  </select>
+                                <input type="text" class="form-control" 
+                                    id="burned" name="burned" required 
+                                    placeholder="Enter burned calories" 
+                                    value="{{ form.instance.burned }}"
+                                >
+                                {% if form.burned.errors %}
+                                    <div class="alert alert-danger" 
+                                        role="alert">
+                                        {{ form.burned.errors }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="image_url">
+                                    <strong>Image URL:</strong>
+                                </label>
+                                <input type="file" class="form-control" 
+                                    id="image_url" name="image_url"
+                                    value="{{ workout.image_url }}"
+                                >
                             </div>
                 
                             <div class="form-group text-center">
                                 <a href="{% url 'user_page' %}" 
-                                    class="btn btn-danger">
+                                    class="btn btn-action btn-cancel">
                                     Cancel
                                 </a>
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" 
+                                    class="btn btn-action btn-edit">
                                     Update Workout
                                 </button>
                             </div>
