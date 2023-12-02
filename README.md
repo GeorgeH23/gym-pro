@@ -26,6 +26,7 @@
 
 
 ## Introduction
+Welcome to GYM PRO FITNESS. The website is designed to empower users on their fitness journey, they can plan, track, and achieve their fitness goals. Whether you're a seasoned gym-goer, a home workout enthusiast, or just starting your fitness journey, our website has something for everyone. Navigating GYM PRO FITNESS is a breeze! Intuitive and user-friendly interface ensures that you can focus on your workouts without the distraction of a complex interface. Create and manage personalized workout routines tailored to your fitness goals, discover new workout routines. Join us in unlocking your full potential, breaking barriers, and achieving fitness milestones. Your journey begins here with GYM PRO FITNESS! 
 
 
 ## User Stories
