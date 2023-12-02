@@ -10,50 +10,55 @@
 {% if user.is_authenticated %}
   {% if workouts|length != 0 %}
   <div class="container pt-lg-4 pt-sm-2 col-lg-8">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th class="small-none">#</th>
-          <th>Type</th>
-          <th>Title</th>
-          <th>Intensity</th>
-          <th class="text-center">Modify</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for workout in workouts %}
-        <tr>
-          <td class="small-none align-middle">{{ forloop.counter }}</td>
-          <td class="h6 align-middle">{{ workout.type }}</td>
-          <td class="align-middle">
-            <a href="{% url 'workout_detail' slug=workout.slug %}" 
-              class="workout-link">
-              {{ workout.title }}
-            </a>
-          </td>
-          <td class="small-none h6 align-middle">{{ workout.intensity }}</td>
-          <td class="align-middle">
-            <div class="d-flex align-items-center gap-1 justify-content-center">
-              <a href="{% url 'edit_workout' slug=workout.slug %}" class="btn btn-primary btn-sm">Edit</a>
-              <a href="{% url 'workout_delete_confirmation' workout_id=workout.id %}" class="btn btn-danger btn-sm">Delete</a>
-            </div>
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+      {% for workout in workouts %}
+      <div class="col-md-3 mb-4">
+        <div class="card">
+          {% if 'default' in workout.image_url.url %}
+            <img src="{% static 'images/running.png' %}" 
+              class="card-img-top img-fluid" alt="{{ workout.title }}"
+            >
+          {% else %}
+            <img src="{{ workout.image_url.url }}" 
+              class="card-img-top img-fluid" alt="{{ workout.title }}"
+            >
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ workout.title }}</h5>
+            <p class="card-text">Type: {{ workout.type }}</p>
+            <p class="card-text">Intensity: {{ workout.intensity }}</p>
+            <div class="d-flex justify-content-center">
+              {% if workout.slug %}
+                  <a href="{% url 'edit_workout' slug=workout.slug %}" 
+                    class="btn btn-action btn-edit">
+                    Edit
+                  </a>
+              {% else %}
+                  <p class="text-muted btn-action">
+                    Editing not available for this workout.
+                  </p>
+              {% endif %}
+              <a href="{% url 'workout_delete_confirmation' workout_id=workout.id %}" 
+                class="btn btn-action btn-delete">
+                Delete
+              </a>
+            </div>      
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
   </div>
   {% else %}
   <div class="text-center">
     <h3 class="text-size-h3">You didn't create any workouts yet.</h3>
   </div>
-  {% endif %}
   <div class="container text-center pb-2">
-    <a href="{% url 'add_workout' %}" 
-        class="btn btn-primary add-button">
-        Add a Workout
+    <a href="{% url 'add_workout' %}" class="btn btn-primary add-button">
+      Add a Workout
     </a>
   </div>
   {% endif %}
+{% endif %}
 
 {% endblock %}
