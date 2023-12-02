@@ -36,8 +36,20 @@
 ###### [Back to top ⇧](#table-of-contents)
 
 ## Accessibility
+### Lighthouse Audit
+
+This project has undergone a comprehensive Lighthouse audit, resulting in good scores across key metrics:
+
+- **Performance:** The application loads quickly and responds swiftly, providing users with a seamless experience.
+
+- **Accessibility:** The application is accessible to users of all abilities.
+
+- **Best Practices:** The codebase adheres to industry best practices, promoting maintainability and stability.
+
+- **SEO (Search Engine Optimization):** The application is optimized for search engines, enhancing discoverability.
 
 ###### [Back to top ⇧](#table-of-contents)
+
 
 ## Database Design
 ![Database](documentation/DB.png)
