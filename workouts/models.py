@@ -37,7 +37,7 @@ class Workout(models.Model):
     intensity = models.ForeignKey(Intensity, on_delete=models.CASCADE)
     burned = models.CharField(max_length=100, blank=False)
     image_url = CloudinaryField('image', default='default')
-    slug = models.SlugField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=100, unique=True, blank=False)
 
     user_id = models.ForeignKey(
         User,

@@ -1,3 +1,4 @@
+from django.http import HttpResponseBadRequest
 from django.urls import reverse
 from django.views import View
 from django.shortcuts import render, redirect, get_object_or_404
@@ -7,7 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from .models import Workout, Type, Intensity
 from .forms import WorkoutForm
-
+import pdb 
 # Create your views here.
 
 
@@ -83,7 +84,9 @@ class AddWorkoutView(LoginRequiredMixin, View):
         if form.is_valid():
             user = request.user
             workout = form.save(commit=False)
-            workout.user = user
+            workout.user_id = user
+            slug_count = Workout.objects.filter(title=workout.title).count() + 1
+            workout.slug = slugify(workout.title + str(slug_count))
             workout.save()
 
             messages.success(
@@ -114,6 +117,9 @@ class AddWorkoutView(LoginRequiredMixin, View):
 # Workout Edit (Update) View
 class WorkoutUpdateView(LoginRequiredMixin, View):
     def get(self, request, slug):
+        if not slug:
+            return HttpResponseBadRequest("Invalid workout slug")
+
         workout = get_object_or_404(Workout, slug=slug)
         form = WorkoutForm(instance=workout)
         tipes = Type.objects.all()
@@ -128,6 +134,9 @@ class WorkoutUpdateView(LoginRequiredMixin, View):
         return render(request, 'workouts/edit_workout.html', context)
 
     def post(self, request, slug):
+        if not slug:
+            return HttpResponseBadRequest("Invalid workout slug")
+
         workout = get_object_or_404(Workout, slug=slug)
         tipes = Type.objects.all()
         intensities = Intensity.objects.all()
