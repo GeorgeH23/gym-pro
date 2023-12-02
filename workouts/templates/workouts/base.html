@@ -56,6 +56,15 @@
             <!-- Navbar items available if not logged in -->
             {% if user.is_authenticated %}
                 <li class="nav-item 
+                    {% if request.path == '/search_workout/' %}
+                        active
+                    {% endif %}">
+                    <a class="nav-link"
+                        href="{% url 'search_workout' %}">
+                        Search
+                    </a>
+                </li>
+                <li class="nav-item 
                     {% if request.path == '/user_page/' or '/edit/' in request.path %}
                         active
                     {% endif %}">
