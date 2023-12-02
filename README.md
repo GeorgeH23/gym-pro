@@ -40,6 +40,40 @@
 ###### [Back to top ⇧](#table-of-contents)
 
 ## Database Design
+![Database](documentation/DB.png)
+### User Profile Model
+  - represents additional information associated with a user's profile.
+-   __Attributes:__
+    - **user:** One-to-One relationship with the User model.
+    - **profile_picture:** CloudinaryField for storing the profile picture.
+
+### Type Model
+  - represents different types/categories that can be assigned to workouts.
+-   __Attributes:__
+    - **name:** CharField representing the name of the type.
+
+### Intensity Model
+  - represents different intensity levels that can be assigned to workouts.
+-   __Attributes:__
+    - **name:** CharField representing the name of the intensity.
+
+### Workout Model
+  - represents individual workout entries.
+-   __Attributes:__
+    - **title:** CharField representing the title of the workout.
+    - **type:** ForeignKey relationship with the Type model.
+    - **description:** TextField for a detailed description of the workout.
+    - **intensity:** ForeignKey relationship with the Intensity model.
+    - **burned:** CharField representing the calories burned during the workout.
+    - **image_url:** CloudinaryField for storing an image associated with the workout.
+    - **slug:** SlugField for creating human-readable URLs.
+    - **user_id:** ForeignKey relationship with the built-in User model.
+    - **likes:** Many-to-Many relationship with the User model for tracking likes.
+    - **liked_by_user:** BooleanField indicating whether the current user has liked the workout.
+    - **created_on:** DateTimeField indicating the creation timestamp.
+    - **updated_on:** DateTimeField indicating the last update timestamp.
+-   __Meta:__
+    - **ordering:** Specifies the default ordering based on the creation timestamp.
 
 ###### [Back to top ⇧](#table-of-contents)
 
