@@ -34,7 +34,7 @@
 
 ## UX
 
-### 1.Development Planes
+### I.Development Planes
 #### Strategy
 
 - **Objective:** Create a user-friendly platform that empowers fitness enthusiasts to achieve their health and fitness goals by providing comprehensive workout routines.
@@ -79,7 +79,7 @@
 | View/Edit/Delete Details of a workout | Detailed workout information presentation  |
 | Get in Contact with Admin             | Responsive customer support                |
 
-### 2.Information Architecture
+### II.Information Architecture
 
 The application is structured into the following main sections:
 
@@ -88,7 +88,7 @@ The application is structured into the following main sections:
 3. **Profile:** User-specific information, settings, and added workouts.
 4. **Contact:** Form to get in touch with the administrators.
 
-### 3.Scope
+### III.Scope
 
 #### Features:
 1. **User Authentication:**
