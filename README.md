@@ -27,7 +27,18 @@
 
 ## Introduction
 
+
 ## User Stories
+
+1. As a fitness enthusiast, I want to create an account on the “Gym Pro Fitness” platform, so I can log in using my username or email and password.
+2. As a registered user, I want the ability to update my profile information, including changing my password.
+3. As a user committed to my fitness journey, I want the option to delete my user profile if I decide to discontinue using the “Gym Pro Fitness” platform.
+4. As a fitness enthusiast, I want to add a new workout to the platform.
+5. As a registered user, I want to update the details of the workouts I’ve added, allowing corrections to information such as exercise names and descriptions.
+6. As a registered user, I want to delete workout details from my profile, removing them from the platform.
+7. As a registered user, I want to see a list of all the workouts I’ve added to the “Gym Pro Fitness” platform for easy reference.
+8. As a fitness enthusiast and a registered user, I want to search for specific workouts on the platform, so I can discover new exercises added by all users.
+9. As a registered/no registere user, I want to use a contact form to reach out to the “Gym Pro Fitness” administrators with any questions, feedback, or concerns.
 
 ###### [Back to top ⇧](#table-of-contents)
 
