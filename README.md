@@ -31,9 +31,147 @@
 
 ###### [Back to top ⇧](#table-of-contents)
 
+
 ## UX
 
+### 1.Development Planes
+#### Strategy
+
+- **Objective:** Create a user-friendly platform that empowers fitness enthusiasts to achieve their health and fitness goals by providing comprehensive workout routines.
+
+- **User Research:** Conduct in-depth research to understand the needs, preferences, and challenges of fitness enthusiasts.
+
+- **Competitor Analysis:** Analyze existing fitness platforms to identify strengths, weaknesses, opportunities, and threats. Learn from successful platforms and identify areas for differentiation.
+
+- **Goals:** 
+  - Provide an intuitive and engaging user interface.
+  - Supportive community where users can share their fitness routines.
+
+#### Target Audience
+- **Roles:** 
+  - Fitness Enthusiasts: Individuals passionate about achieving their fitness goals.
+  - Gym Instructors: Professionals looking for effective workout routines to share with clients.
+
+- **Demographics:** 
+  - Age: 18-45
+  - Gender: All
+  - Occupation: Varied
+  - Fitness Level: Beginner to Advanced
+
+- **Psychographics:** 
+  - Enjoys a mix of workout styles.
+
+- **Personality & Attitudes:** 
+  - Energetic, Motivated, Positive
+
+- **Values:** 
+  - Health, Progress, Community
+
+- **Lifestyles:** 
+  - Busy Professionals, Fitness Enthusiasts, Health-Conscious Individuals
+
+#### User and Client Needs
+
+| User Needs                            | Client Needs                               |
+|---------------------------------------|--------------------------------------------|
+| Register/Login to account             | User account management system             |
+| Search for workouts                   | Efficient workout search functionality     |
+| View/Edit/Delete Details of a workout | Detailed workout information presentation  |
+| Get in Contact with Admin             | Responsive customer support                |
+
+### 2.Information Architecture
+
+The application is structured into the following main sections:
+
+1. **Home:** Landing page.
+2. **Workouts:** Search for various workouts.
+3. **Profile:** User-specific information, settings, and added workouts.
+4. **Contact:** Form to get in touch with the administrators.
+
+### 3.Scope
+
+#### Features:
+1. **User Authentication:**
+   - Register and log in with username or email.
+   - Edit profile information, change password.
+   - Delete user profile.
+
+2. **Workout Management:**
+   - Add a new workout to the database.
+   - Update workout details (e.g.:title, type, intensity, descriptions).
+   - Delete workout details.
+
+3. **Interaction:**
+   - View a list of added workouts.
+   - Search for workouts.
+
+4. **Contact Form:**
+   - Users can reach out to administrators with questions, feedback, or concerns.
+
+#### User Flow:
+
+1. **New User:**
+   - Registers for an account.
+   - Logs in using username or email.
+   - Uses the contact form to communicate with administrators.
+
+2. **Registered User:**
+   - Edits profile information, changes password
+   - Adds a new workout to the database.
+   - Updates or deletes workout details.
+   - Views a list of added workouts.
+   - Searches for workouts.
+   - Uses the contact form to communicate with administrators.
+
+#### Technical Requirements:
+- **Front-End:**
+  - HTML, CSS, JavaScript.
+  - Bootstrap for responsive design.
+  - Font Awesome for icons.
+
+- **Back-End:**
+  - Python.
+  - Django framework.
+
+- **Database:**
+  - PostgreSQL.
+
+- **Deployment:**
+  - Hosted on Heroku.
+  - Static files stored on Cloudinary.
+  - Database hosted on ElephantSQL.
+
+- **Version Control:**
+  - Git and GitHub.
+
+#### Milestones:
+1. **Setup and Basic Structure:**
+   - Initialize Django project.
+   - Create necessary models and views.
+   - Implement basic front-end structure.
+
+2. **User Authentication and Profiles:**
+   - Implement user registration and login.
+   - Create and edit user profiles.
+
+3. **Workout Management:**
+   - Develop functionality to add, update, and delete workouts.
+
+4. **Interaction Features:**
+   - Implement views for user-added workouts.
+
+5. **Additional Features:**
+   - Add search functionality.
+
+6. **Contact Form:**
+   - Create a form for user-admin communication.
+
+7. **Deployment and Testing:**
+   - Host on Heroku.
+   - Test functionality and resolve issues.
+
 ###### [Back to top ⇧](#table-of-contents)
+
 
 ## Accessibility
 ### Lighthouse Audit
