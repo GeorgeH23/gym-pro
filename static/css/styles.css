@@ -124,12 +124,7 @@ main {
     font-weight: bold;
 }
 
-.btn-edit {
-    background-color: #333333;
-    color: #fff;
-}
-
-.btn-delete, .btn-cancel {
+.btn-delete, .btn-cancel, .btn-edit {
     background-color: #333333;
     color: #fff;
 }
