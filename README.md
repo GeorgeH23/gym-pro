@@ -83,13 +83,33 @@ Welcome to GYM PRO FITNESS. The website is designed to empower users on their fi
   - Busy Professionals, Fitness Enthusiasts, Health-Conscious Individuals
 
 #### User and Client Needs
+  - 
+    | User Needs                            | Client Needs                               |
+    |---------------------------------------|--------------------------------------------|
+    | Register/Login to account             | User account management system             |
+    | Search for workouts                   | Efficient workout search functionality     |
+    | View/Edit/Delete Details of a workout | Detailed workout information presentation  |
+    | Get in Contact with Admin             | Responsive customer support                |
 
-| User Needs                            | Client Needs                               |
-|---------------------------------------|--------------------------------------------|
-| Register/Login to account             | User account management system             |
-| Search for workouts                   | Efficient workout search functionality     |
-| View/Edit/Delete Details of a workout | Detailed workout information presentation  |
-| Get in Contact with Admin             | Responsive customer support                |
+#### Importance and Viability Table
+
+  - 
+    | Feature                  | Importance (1-5) | Viability (1-5) |
+    |--------------------------|------------------|-----------------|
+    | Home Page                | 5                | 5               |
+    | Login                    | 5                | 5               |
+    | Register                 | 5                | 5               |
+    | User Profile             | 5                | 4               |
+    | - Edit Profile           | 3                | 4               |
+    | - Delete Profile         | 3                | 3               |
+    | My Workouts              | 5                | 5               |
+    | - Add Workout            | 5                | 5               |
+    | - View Workouts          | 4                | 5               |
+    | - Edit Workout           | 3                | 4               |
+    | - Delete Workout         | 3                | 3               |
+    | Search Page              | 4                | 3               |
+    | Contact Page             | 4                | 4               |
+    | - Send Message           | 5                | 4               |
 
 ### II.Information Architecture
 
