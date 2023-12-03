@@ -25,8 +25,8 @@
           {% endif %}
           <div class="card-body p-4">
             <h5 class="card-title">{{ workout.title }}</h5>
-            <p class="card-text">Type: {{ workout.type }}</p>
-            <p class="card-text">Intensity: {{ workout.intensity }}</p>
+            <p class="card-text text-muted">Type: <strong>{{ workout.type }}</strong></p>
+            <p class="card-text text-muted">Intensity: <strong>{{ workout.intensity }}</strong></p>
             <div class="d-flex justify-content-center">
               {% if workout.slug %}
                   <a href="{% url 'edit_workout' slug=workout.slug %}" 
