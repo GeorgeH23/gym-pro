@@ -12,6 +12,7 @@ Return to [README.md](README.md)
 + [Automated Testing](#automated-testing) 
     - [Code Validation](#code-validation)
     - [Lighthouse Validation](#lighthouse-validation)
++ [Wireframes](#wireframes)
 
 ###### [Back to top ⇧](#table-of-contents)
 
@@ -153,7 +154,8 @@ Return to [README.md](README.md)
 
 ###### [Back to top ⇧](#table-of-contents)
 
-#### Lighthouse Validation Results:
+### Lighthouse Validation
+#### Results:
 [Lighthouse](https://developers.google.com/web/tools/lighthouse) used to measure the performance of the website.
 
 - Homepage
@@ -185,5 +187,22 @@ Return to [README.md](README.md)
 
 - Workout Search
 ![Workout Search Lighthouse Validation](documentation/validation/lighthouse/perf-workout-search.png)
+
+###### [Back to top ⇧](#table-of-contents)
+
+
+### Wireframes
+
+- Login and Contact Wireframes
+![Login and Contact Wireframes](documentation/wireframes/login-and-contact.png)
+
+- Registration and Home Wireframes
+![Registration and Home Wireframes](documentation/wireframes/home-and-registration.png)
+
+- Add Workout and Workouts list Wireframes
+![Add Workout and Workouts list Wireframes](documentation/wireframes/add-workout-and-workouts.png)
+
+- Workout Search and View Wireframes
+![Workout Search and View Wireframes](documentation/wireframes/search-and-view.png)
 
 ###### [Back to top ⇧](#table-of-contents)

@@ -28,6 +28,8 @@
 ## Introduction
 Welcome to GYM PRO FITNESS. The website is designed to empower users on their fitness journey, they can plan, track, and achieve their fitness goals. Whether you're a seasoned gym-goer, a home workout enthusiast, or just starting your fitness journey, our website has something for everyone. Navigating GYM PRO FITNESS is a breeze! Intuitive and user-friendly interface ensures that you can focus on your workouts without the distraction of a complex interface. Create and manage personalized workout routines tailored to your fitness goals, discover new workout routines. Join us in unlocking your full potential, breaking barriers, and achieving fitness milestones. Your journey begins here with GYM PRO FITNESS! 
 
+ ![Gym Pro Fitness Mockup Images](documentation/responsive.png)
+
 
 ## User Stories
 
@@ -207,7 +209,7 @@ The application is structured into the following main sections:
 
 ## Accessibility
 ### Lighthouse Audit
-
+###### go to [Testing Lighthouse section](TESTING.md#lighthouse-validation)
 This project has undergone a comprehensive Lighthouse audit, resulting in good scores across key metrics:
 
 - **Performance:** The application loads quickly and responds swiftly, providing users with a seamless experience.
@@ -220,6 +222,20 @@ This project has undergone a comprehensive Lighthouse audit, resulting in good s
 
 ###### [Back to top ⇧](#table-of-contents)
 
+## Surface
+
+##### SKELETON
+- **Wireframes:** [Link to Wireframes](TESTING.md#Wireframes)
+
+##### Colour Scheme
+- The color palette used in the website:
+  - Primary Color: #333333;
+  - Secundary Color: #FFD700.
+  - Accent Color: #4169E1.
+  - Background Color: #F8F9FA.
+  - Text Color: #000000, #FFFFFF.
+
+![Palette Color](documentation/palette-color.png)
 
 ## Database Design
 ![Database](documentation/DB.png)
