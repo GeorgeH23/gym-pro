@@ -269,36 +269,49 @@ This project has undergone a comprehensive Lighthouse audit, resulting in good s
 
 -   __Footer__
     - The footer is located at the bottom of the webpage and contains the logo, the social media and a link to the contact page. It provides a consistent location for secondary navigation.
+    ![Homepage](documentation/feature/app-nav-footer.png)
 
 -   __Homepage__
     - The homepage serves as the landing page for my application. A Gif was added on the background of the title. Was set it with css and Bootstrap.
+    ![Homepage](documentation/feature/app-home.png)
 
 -   __Login/Registration Pages:__
     - The login page allows existing users to log in by entering their credentials (username/email and password). The registration page enables new users to create an account by providing necessary information, such as username, email, and password. The forms has validation check for different case of errors (e.g.: 'User already exist', 'Your password must to contains...', 'Your passwords didn't match', 'Email is not have the correct form')
+    ![Login](documentation/feature/app-login.png)
+    ![Register](documentation/feature/app-register.png)
 
 -   __Contact Page:__
     - The contact page allows users to reach out to the platform administrators. Includes a form with fields for name, email, and message, allowing users to submit inquiries or feedback. If the user is authenticated the email will fill in automatically.
+    ![Contact](documentation/feature/app-contact.png)
 
 -   __View Details of a Workout:__
     - This feature allows users to view detailed information about a specific workout. Include the workout title, description, type, intensity, calories burned, and image if exist. Users can access this information by clicking on a workout from the list or search results.
+    ![View Workout](documentation/feature/app-workout-view.png)
 
 -   __My Workouts:__
     - The "My Workouts" page displays a list of workouts created by the logged-in user. It provides a personalized view, allowing users to manage and interact with their own workouts. 
+    ![Workouts](documentation/feature/app-workouts.png)
 
 -   __Edit Workout:__
     - Users can edit the details of a workout they created. The "Edit Workout" feature provides a form pre-filled with the existing details, allowing users to make modifications and update the workout.
+    ![Edit Workout](documentation/feature/app-workout-edit.png)
 
 -   __Delete Workout:__
     - The "Delete Workout" feature allows users to remove a workout they created. This action is irreversible, user will be asked to confirm the deletion with the posiblility to cancel the action of deletion.
+    ![Delete](documentation/feature/app-workout-delete.png)
 
 -   __Profile Page:__
     - The profile page showcases information about the user, including their username and email and 2 buttons, one for edit and one for delete.
+    ![Profile](documentation/feature/app-profile.png)
 
 -   __Edit Profile Page:__
     - Users can modify their profile information page. This includes updating the username, email, and password.
+    ![Profile Edit](documentation/feature/app-profile-edit.png)
 
 -   __Delete Profile Page:__
     - The "Delete Profile" feature allows users to permanently delete their account. User will be required to confirm the decision, as this action is irreversible.
+    ![Delete](documentation/error-delete-profile.png)
+
 
 ###### [Back to top ⇧](#table-of-contents)
 
