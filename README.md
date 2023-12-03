@@ -285,7 +285,7 @@ This project has undergone a comprehensive Lighthouse audit, resulting in good s
     ![Contact](documentation/feature/app-contact.png)
 
 -   __View Details of a Workout:__
-    - This feature allows users to view detailed information about a specific workout. Include the workout title, description, type, intensity, calories burned, and image if exist. Users can access this information by clicking on a workout from the list or search results.
+    - This feature allows users to view detailed information about a specific workout. Include the workout title, description, type, intensity, calories burned, and image if exist. Users can access this information by clicking on a workout from the list or search results or clicking the title of the workout from 'My Workouts' page. The favorite field, will help the user to see in the Search list page the workouts that he liked.
     ![View Workout](documentation/feature/app-workout-view.png)
 
 -   __My Workouts:__
@@ -299,6 +299,10 @@ This project has undergone a comprehensive Lighthouse audit, resulting in good s
 -   __Delete Workout:__
     - The "Delete Workout" feature allows users to remove a workout they created. This action is irreversible, user will be asked to confirm the deletion with the posiblility to cancel the action of deletion.
     ![Delete](documentation/feature/app-workout-delete.png)
+
+-   __Search Workout:__
+    - The "Search Workout" feature allows users to search a workout after title, intensity or type. The workout are displayed based on date of creation. In the search list, the user can see the workout that he liked. The liked workout will have a red beat hart. The likes are based on the user, even if you can see the workouts of another user, you will not see what he liked.
+    ![Search](documentation/feature/app-workout-search.png)
 
 -   __Profile Page:__
     - The profile page showcases information about the user, including their username and email and 2 buttons, one for edit and one for delete.
@@ -360,6 +364,7 @@ This project has undergone a comprehensive Lighthouse audit, resulting in good s
 
 
 ## Testing
+For Testing details go to [TESTING.md](TESTING.md)
 
 ### User Tests
 
