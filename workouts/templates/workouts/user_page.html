@@ -10,9 +10,9 @@
 {% if user.is_authenticated %}
   {% if workouts|length != 0 %}
   <div class="container pt-2">
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 g-4">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
       {% for workout in workouts %}
-      <div class="col-md-3 mb-4 mt-4">
+      <div class="col-md-3 col-md-3-workouts mb-4 mt-4">
         <div class="card border-0 bg-light rounded shadow">
           {% if 'default' in workout.image_url.url %}
             <img src="{% static 'images/running.png' %}" 
@@ -24,9 +24,17 @@
             >
           {% endif %}
           <div class="card-body p-4">
-            <h5 class="card-title">{{ workout.title }}</h5>
-            <p class="card-text text-muted">Type: <strong>{{ workout.type }}</strong></p>
-            <p class="card-text text-muted">Intensity: <strong>{{ workout.intensity }}</strong></p>
+            <h5 class="card-title text-size-h5">
+              <a class="text-view-title"
+                href="{% url 'workout_detail' slug=workout.slug %}">
+                {{ workout.title }}
+              </a>
+            </h5>
+            <p class="card-text text-muted text-size-h5">
+              Type: 
+              <strong>{{ workout.type }}</strong>
+            </p>
+            <p class="card-text text-muted text-size-h5">Intensity: <strong>{{ workout.intensity }}</strong></p>
             <div class="d-flex justify-content-center">
               {% if workout.slug %}
                   <a href="{% url 'edit_workout' slug=workout.slug %}" 

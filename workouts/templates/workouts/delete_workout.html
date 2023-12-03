@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block content %}
-<div class="container mt-5 col-9 col-xs-8 col-md-6 col-lg-4">
+<div class="container mt-5 col-12 col-md-8 col-lg-12 mb-4">
   <div class="card col-10 col-md-7 mx-auto border-0 bg-light rounded shadow">
     <h1 class="text-danger text-center text-size-h1">Delete Workout</h1>
     <h3 class="text-center text-size-h3">{{ workout.title }}</h3>
@@ -16,8 +16,8 @@
                 This action cannot be undone!
             </span>
           </p>
-          <a href="{% url 'user_page' %}" class="btn btn-primary">Cancel</a>
-          <button type="submit" class="btn btn-danger">Delete</button>
+          <a href="{% url 'user_page' %}" class="btn btn-action btn-edit">Cancel</a>
+          <button type="submit" class="btn btn-action btn-delete">Delete</button>
         </form>
       </div>
     </div>

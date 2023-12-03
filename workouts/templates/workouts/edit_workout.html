@@ -18,7 +18,7 @@
                 </div>
                 <div class="mb-6">
                     <div class="d-flex justify-content-center">
-                        <form class="col-9" 
+                        <form class="col-12" 
                             action="{% url 'edit_workout' workout.slug %}" 
                             method="POST" enctype="multipart/form-data">
                             {% csrf_token %}

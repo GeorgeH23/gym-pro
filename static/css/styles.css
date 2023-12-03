@@ -91,7 +91,7 @@ main {
     height: 4rem;
 }
 
-.footer-icon-color h3 a{
+.footer-icon-color h3 a {
     color:#333333;
     text-decoration: none;
 }
@@ -139,6 +139,16 @@ main {
     color: #fff;
 }
 
+.text-view-title {
+    color:#333333;
+    text-decoration: none;
+}
+
+.text-view-title:hover {
+    color:#4169E1;
+    text-decoration: none;
+}
+
 /* Media query for big screens */
 @media screen and (max-width: 1500px) {
     .home-title h1 {
@@ -155,8 +165,22 @@ main {
     }
 }
 
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    .text-size-h5 {
+        font-size: 0.9rem;
+    }
+
+    .card-text {
+        font-size: 0.8rem;
+    }
+
+    .col-md-3-workouts {
+        max-width: 40%;
+    }
+}
+
 /* Media query for medium screens */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1200px) {
     .home-title {
         height: 70vh;
     }
