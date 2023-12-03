@@ -31,9 +31,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'gym-pro-fitness-d84818eee5ff.herokuapp.com', 'localhost', '8000-georgeh23-gym-pro-fitnes-4zxcif5lyi.us2.codeanyapp.com']
+ALLOWED_HOSTS = ['gym-pro-fitness-d84818eee5ff.herokuapp.com', 'localhost', '8000-georgeh23-gym-pro-fitnes-4zxcif5lyi.us2.codeanyapp.com']
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
