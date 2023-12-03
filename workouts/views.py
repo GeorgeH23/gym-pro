@@ -60,10 +60,13 @@ def like_workout_detail(request, slug):
 
         if liked_by_user:
             workout.likes.remove(request.user)
+            workout.liked_by_user = False
         else:
             workout.likes.add(request.user)
+            workout.liked_by_user = True
+        workout.save()
 
-        return redirect('detail_workout', slug=slug)
+        return redirect('workout_detail', slug=slug)
 
 
 # Workout Add View
@@ -196,7 +199,7 @@ def search_workout(request):
     if query:
         workouts = Workout.objects.filter(
             Q(title__icontains=query) | Q(type__name__icontains=query) |
-            Q(intensity__name__icontains=query))
+            Q(intensity__name__icontains=query)).order_by("-liked_by_user")
     else:
         workouts = Workout.objects.all()
 
