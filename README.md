@@ -352,6 +352,8 @@ This project has undergone a comprehensive Lighthouse audit, resulting in good s
 ###### [Back to top ⇧](#table-of-contents)
 
 ## Issues and Bugs
+- **Can't login with email**
+  - On the request I have called the wrong variable.
 
 ###### [Back to top ⇧](#table-of-contents)
 
