@@ -9,9 +9,6 @@
             <div class="card border-0 bg-light rounded shadow">
                 <h3 class="card-title text-center text-size-h3 card-header">
                     {{ workout.title }}
-                    <a href="javascript:history.go(-1)">
-                        <i class="fa fa-arrow-left"></i>
-                    </a>
                 </h3>
                 <div class="row d-flex justify-content-center">
                     <div class="col-12 col-md-6 text-center">
@@ -35,8 +32,16 @@
                                 {{ workout.intensity }}
                             </p>
                             <p class="card-text"> 
+                                <strong>Burned:</strong> 
+                                {{ workout.burned }}
+                            </p>
+                            <p class="card-text"> 
                                 <strong>Added on:</strong> 
                                 {{ workout.created_on|date:"F d, Y" }}
+                            </p>
+                            <p class="card-text"> 
+                                <strong>Description:</strong> 
+                                {{ workout.description }}
                             </p>
                             <div class="d-flex flex-row justify-content-start">
                                 <p class="card-text text-start pt-2">
@@ -69,14 +74,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row col-md-12">
-        <div class="card-body">
-          <div class="card-text description">
-            {{ workout.description|safe|linebreaksbr }}
-          </div>
-        </div>
-      </div>
     </div>
   </div>
   
