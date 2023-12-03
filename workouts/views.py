@@ -9,7 +9,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from .models import Workout, Type, Intensity
 from .forms import WorkoutForm
-import pdb 
 # Create your views here.
 
 
@@ -89,7 +88,7 @@ class AddWorkoutView(LoginRequiredMixin, View):
             user = request.user
             workout = form.save(commit=False)
             workout.user_id = user
-            slug_count = Workout.objects.filter(title=workout.title).count() + 1
+            slug_count = Workout.objects.filter(title=workout.title).count()+1
             workout.slug = slugify(workout.title + str(slug_count))
             workout.save()
 
@@ -164,7 +163,7 @@ class WorkoutUpdateView(LoginRequiredMixin, View):
             'intensities': intensities,
         }
         return render(request, 'workouts/edit_workout.html', context)
-    
+
 
 # Delete Workout View
 class WorkoutDeleteView(LoginRequiredMixin, View):
@@ -189,6 +188,7 @@ def workout_delete_confirmation(request, workout_id):
         return redirect('user_page')
 
     return render(request, 'workouts/delete_workout.html', {'workout': workout})
+
 
 # https://docs.djangoproject.com/en/4.0/topics/db/queries/#complex-lookups-with-q-objects
 # Find Workout View

@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
+from django.contrib.auth import (
+    authenticate, login, logout, update_session_auth_hash)
 from django.contrib import messages
 
 from django.core.exceptions import ValidationError
@@ -91,7 +92,7 @@ def login_user(request):
             return redirect('register_user')
     else:
         return render(request, 'authentication/login.html', {})
-    
+
 
 # User logout view
 def logout_user(request):
@@ -156,7 +157,7 @@ def update_profile(request):
                 user.set_password(new_password)
                 user.save()
                 update_session_auth_hash(request, user)
-            
+
             # Verify if user changed his email
             new_email = form.cleaned_data.get('email')
             if new_email and new_email != user.email:
@@ -183,7 +184,7 @@ def update_profile(request):
                 # Update the email address
                 user.email = new_email
                 user.save()
-            
+
             user.save()
             messages.success(request, (
                 'Your profile was successfully updated!'),
